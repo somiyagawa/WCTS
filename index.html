@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Powered Language Revitalization: A Case Study of Truku Seediq</title>
     <style>
+        :root {
+            --primary-color: #005b96;
+            --secondary-color: #6497b1;
+            --accent-color: #eb6e4b;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #011f4b;
+            --highlight: #b3e5fc;
+            --slide-transition: 0.6s;
+        }
+        
         * {
             box-sizing: border-box;
             margin: 0;
@@ -12,17 +23,18 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
-            color: #333;
-            background-color: #f8f8f8;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
             line-height: 1.6;
+            overflow: hidden;
         }
         
         .slide-container {
-            width: 100%;
+            width: 100vw;
             height: 100vh;
-            overflow: hidden;
             position: relative;
+            overflow: hidden;
         }
         
         .slide {
@@ -31,94 +43,90 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding: 40px;
-            background-color: #fff;
-            display: none;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transform: translateX(100%);
+            transition: transform var(--slide-transition), opacity var(--slide-transition);
             overflow-y: auto;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
         }
         
         .slide.active {
-            display: block;
             opacity: 1;
+            transform: translateX(0);
+            z-index: 1;
         }
         
-* {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        .slide.prev {
+            transform: translateX(-100%);
         }
         
-        body {
-            font-family: 'Arial', sans-serif;
-            color: #333;
-            background-color: #f8f8f8;
-            line-height: 1.6;
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .slide-container {
-            width: 100%;
-            height: 100vh;
+        .header h1 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            white-space: nowrap;
             overflow: hidden;
-            position: relative;
+            text-overflow: ellipsis;
         }
         
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 40px;
-            background-color: #fff;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            overflow-y: auto;
-        }
-        
-        .slide.active {
-            display: block;
-            opacity: 1;
+        .slide-number {
+            font-size: 0.9rem;
+            font-weight: 400;
         }
         
         .slide-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            flex: 1;
+            padding: 40px;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            gap: 40px;
-            height: calc(100vh - 180px);
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
         }
         
-        .slide-content.title-slide {
-            flex-direction: column;
-            align-items: center;
+        .title-slide .slide-content {
             justify-content: center;
+            align-items: center;
+            flex-direction: column;
             text-align: center;
+            background-color: var(--dark-bg);
+            color: white;
+            height: 100%;
+        }
+        
+        .full-width {
+            width: 100%;
+        }
+        
+        .two-column {
+            display: flex;
+            gap: 40px;
+            width: 100%;
+        }
+        
+        .slide-text {
+            flex: 1;
         }
         
         .slide-image {
             width: 45%;
-            flex-shrink: 0;
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: var(--light-bg);
+            border-radius: 8px;
             overflow: hidden;
-            height: 100%;
-            max-height: 600px;
-        }
-        
-        .title-slide .slide-image {
-            width: 500px;
-            height: 300px;
-            margin-bottom: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
         }
         
         .slide-image img {
@@ -127,36 +135,23 @@
             object-fit: cover;
         }
         
-        .slide-text {
-            width: 55%;
-            overflow-y: auto;
-            padding-right: 15px;
-            max-height: 100%;
-        }
-        
-        h1 {
-            color: #00308F;
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
         h2 {
-            color: #00308F;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
         }
         
         h3 {
-            color: #004e98;
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            margin-top: 20px;
+            color: var(--secondary-color);
+            font-size: 1.6rem;
+            margin: 20px 0 15px;
         }
         
         p {
             margin-bottom: 15px;
+            line-height: 1.7;
         }
         
         ul, ol {
@@ -165,788 +160,868 @@
         }
         
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         
         .navigation {
             position: fixed;
-            bottom: 20px;
+            bottom: 40px;
             left: 0;
             right: 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            z-index: 10;
+            gap: 15px;
+            z-index: 100;
         }
         
         .nav-btn {
-            padding: 10px 20px;
-            background-color: #00308F;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .nav-btn:hover {
-            background-color: #004e98;
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .nav-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .nav-btn:disabled {
             background-color: #ccc;
             cursor: not-allowed;
-        }
-        
-        .slide-indicator {
-            position: fixed;
-            bottom: 70px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: #555;
-            font-size: 14px;
-        }
-        
-        .title-slide {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 100%;
-        }
-        
-        .title-slide h1 {
-            font-size: 2.8em;
-            margin-bottom: 30px;
-        }
-        
-        .title-slide h2 {
-            color: #555;
-            font-size: 1.6em;
-            margin-bottom: 20px;
-        }
-        
-        .title-slide p {
-            color: #666;
-            font-size: 1.2em;
-            margin-bottom: 5px;
-        }
-        
-        .highlight {
-            color: #004e98;
-            font-weight: bold;
-        }
-        
-        .subtitle {
-            color: #555;
-            font-style: italic;
-            margin-bottom: 20px;
+            transform: none;
+            box-shadow: none;
         }
         
         .content-box {
-            background-color: #f5f7fa;
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .content-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .title-slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInUp 1.5s ease;
+        }
+        
+        .title-slide h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border: none;
+            animation: fadeInUp 1.8s ease;
+        }
+        
+        .title-logo {
+            margin-bottom: 50px;
+            max-width: 200px;
+            animation: fadeIn 2s ease;
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background-color: var(--accent-color);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+        
+        .citation {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 30px;
+        }
+        
+        .ai-method {
+            background-color: #f1f8fe;
+            border: 1px solid #d0e6fb;
             padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .ai-method h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .method-icon {
+            display: inline-block;
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        
+        .data-stat {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .data-stat .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .data-stat .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .source-image {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            vertical-align: middle;
+            background-color: var(--light-bg);
             border-radius: 5px;
-            margin-bottom: 15px;
-            border-left: 4px solid #00308F;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .source-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .ai-method h4 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 30px 0;
+        }
+        
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 25px;
+        }
+        
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid white;
+        }
+        
+        .timeline-item h4 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         @media (max-width: 900px) {
-            .slide-content {
+            .two-column {
                 flex-direction: column;
-                height: auto;
-            }
-            
-            .slide-image, .slide-text {
-                width: 100%;
             }
             
             .slide-image {
+                width: 100%;
                 height: 300px;
                 margin-bottom: 20px;
             }
-        }
-        
-        h1 {
-            color: #00308F;
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        h2 {
-            color: #00308F;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-        
-        h3 {
-            color: #004e98;
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            margin-top: 20px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-        }
-        
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        .navigation {
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            z-index: 10;
-        }
-        
-        .nav-btn {
-            padding: 10px 20px;
-            background-color: #00308F;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-        
-        .nav-btn:hover {
-            background-color: #004e98;
-        }
-        
-        .nav-btn:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-        
-        .slide-indicator {
-            position: fixed;
-            bottom: 70px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: #555;
-            font-size: 14px;
-        }
-        
-        .title-slide {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 100%;
-        }
-        
-        .title-slide h1 {
-            font-size: 2.8em;
-            margin-bottom: 30px;
-        }
-        
-        .title-slide h2 {
-            color: #555;
-            font-size: 1.6em;
-            margin-bottom: 20px;
-        }
-        
-        .title-slide p {
-            color: #666;
-            font-size: 1.2em;
-            margin-bottom: 5px;
-        }
-        
-        .highlight {
-            color: #004e98;
-            font-weight: bold;
-        }
-        
-        .subtitle {
-            color: #555;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .content-box {
-            background-color: #f5f7fa;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            border-left: 4px solid #00308F;
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .header h1 {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="progress-bar" id="progressBar"></div>
+    
     <div class="slide-container">
         <!-- Slide 1: Title -->
-        <div class="slide active">
-            <div class="slide-content title-slide">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Title image showing Truku Seediq traditional patterns and language text" />
-                </div>
-                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <h2>Research Team: Field-based Approaches to Language, Cognition, and Human Nature (FALCOHN)</h2>
+        <div class="slide title-slide active">
+            <div class="slide-content">
+                <img src="/api/placeholder/200/200" alt="FALCOHN Logo" class="title-logo" />
+                <h1>AI-Powered Language Revitalization</h1>
+                <h2>A Case Study of Truku Seediq</h2>
+                <p>Field-based Approaches to Language, Cognition, and Human Nature (FALCOHN)</p>
             </div>
         </div>
 
-        <!-- Slide 2: Global Language Endangerment Crisis -->
+        <!-- Slide 2: Introduction to Language Endangerment -->
         <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">2/15</div>
+            </div>
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="World map showing endangered language distribution" />
-                </div>
-                <div class="slide-text">
-                    <h2>1. The Global Language Endangerment Crisis</h2>
-                    <ul>
-                        <li><strong>Scale of Crisis</strong>: 40-44% of world's ~7,000 languages endangered</li>
-                        <li><strong>Rate of Loss</strong>: Approximately one language disappears every two weeks</li>
-                        <li><strong>Significance</strong>: Each extinction represents loss of unique cultural heritage, knowledge systems, and intellectual diversity</li>
-                    </ul>
-                    
-                    <h3>Taiwan's Context</h3>
-                    <ul>
-                        <li>Home to numerous endangered Austronesian languages</li>
-                        <li>Colonial legacies, Mandarin dominance, socioeconomic pressures</li>
-                    </ul>
-                    
-                    <h3>Truku Seediq Status</h3>
-                    <ul>
-                        <li>~4,217 fluent speakers (2021 CIP data)</li>
-                        <li>Ethnic population: ~32,333</li>
-                        <li>Critically endangered with sharp decline in intergenerational transmission</li>
-                    </ul>
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>The Global Language Endangerment Crisis</h2>
+                        
+                        <div class="data-stat">
+                            <div class="number">40-44%</div>
+                            <div class="label">of world's ~7,000 languages endangered</div>
+                        </div>
+                        
+                        <ul>
+                            <li><strong>Rate of Loss:</strong> Approximately one language disappears every two weeks</li>
+                            <li><strong>Significance:</strong> Each extinction represents loss of unique cultural heritage, knowledge systems, and intellectual diversity</li>
+                        </ul>
+                        
+                        <h3>Taiwan's Context</h3>
+                        <p>Taiwan is home to numerous endangered Austronesian languages affected by colonial legacies, Mandarin dominance, and socioeconomic pressures.</p>
+                        
+                        <div class="content-box">
+                            <h4>Truku Seediq Status</h4>
+                            <ul>
+                                <li>Ethnic population: ~32,333</li>
+                                <li>Fluent speakers: ~4,217 (2021 CIP data)</li>
+                                <li>UNESCO Classification: <span class="highlight">Critically Endangered</span></li>
+                                <li>Sharp decline in intergenerational transmission</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/api/placeholder/650/500" alt="World map showing endangered language distribution" />
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Slide 3: Truku Seediq Language Profile -->
         <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">3/15</div>
+            </div>
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Diagram of Truku Seediq phonology and morphology" />
-                </div>
-                <div class="slide-text">
-                    <h2>2. The Truku Seediq Language and Community</h2>
+                <div class="full-width">
+                    <h2>The Truku Seediq Language</h2>
+                    
                     <h3>Linguistic Profile</h3>
                     <ul>
-                        <li><strong>Classification</strong>: Atayalic branch of Austronesian family</li>
-                        <li><strong>Phonology</strong>:
+                        <li><strong>Classification:</strong> Atayalic branch of Austronesian family</li>
+                        <li><strong>Phonology:</strong>
                             <ul>
                                 <li>19 consonants, 4 vowels (/i/, /u/, /ə/, /a/)</li>
                                 <li>Distinctive velar fricatives and uvular stops</li>
                                 <li>Notable dorsal consonant harmony process</li>
                             </ul>
                         </li>
-                        <li><strong>Morphology</strong>:
+                        <li><strong>Morphology:</strong>
                             <ul>
                                 <li>Complex affixation marking voice/focus system</li>
                                 <li>Productive reduplication for pluralization and reciprocal forms</li>
                             </ul>
                         </li>
-                        <li><strong>Syntax</strong>:
+                        <li><strong>Syntax:</strong>
                             <ul>
                                 <li>Predominant VOS word order with ergative alignment</li>
                                 <li>Uses various "predicate extenders" for aspectual, modal, and adverbial meanings</li>
                             </ul>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 4: Cultural and Historical Context -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Historical photo of Truku Seediq cultural practices" />
-                </div>
-                <div class="slide-text">
-                    <h2>2. The Truku Seediq Language and Community (cont.)</h2>
-                    <h3>Cultural and Historical Context</h3>
-                    <ul>
-                        <li><strong>Traditional Sociocultural System</strong>: Governed by gaya (ancestral rules, norms, taboos)</li>
-                        <li><strong>Cultural Practices</strong>: Tminun (weaving), Patasan (facial tattooing)</li>
-                        <li><strong>Historical Resistance</strong>: Truku War (1914), Wushe Incident (1930)</li>
-                        <li><strong>Language Shift Factors</strong>:
-                            <ul>
-                                <li>Japanese colonial assimilation</li>
-                                <li>KMT Mandarin-only policies</li>
-                                <li>Disruption of traditional territories and livelihoods</li>
-                                <li>Urban migration</li>
-                                <li>Educational system challenges</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 5: Community Revitalization Initiatives -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Community meeting of Taiwan Truku Cultural Promotion Association" />
-                </div>
-                <div class="slide-text">
-                    <h2>2. The Truku Seediq Language and Community (cont.)</h2>
-                    <h3>Community Revitalization Initiatives</h3>
-                    <div class="content-box">
-                        <p><strong>Taiwan Truku Cultural Promotion Association</strong> (established 2021)</p>
-                        <ul>
-                            <li>Community consensus-building</li>
-                            <li>Resource development</li>
-                            <li>Educational initiatives</li>
-                            <li>Media production</li>
-                            <li>Collaboration with governmental bodies</li>
-                        </ul>
-                    </div>
                     
                     <div class="content-box">
-                        <p><strong>FALCOHN's Approach</strong>: Technology partnership supporting existing community efforts</p>
+                        <h4>Current Community Initiatives</h4>
+                        <p>The <strong>Taiwan Truku Cultural Promotion Association</strong> (est. 2021) leads revitalization efforts through community consensus-building, resource development, educational initiatives, and media production.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-             <!-- Slide 19: FALCOHN Team -->
+        <!-- Slide 4: Challenge of Intergenerational Language Variation -->
         <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">4/15</div>
+            </div>
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="FALCOHN research team members and logo" />
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>Challenge: Intergenerational Language Variation</h2>
+                        
+                        <h3>Generational Gap in Truku Seediq</h3>
+                        <p>Significant linguistic variations exist between elder speakers (80-90 years) and younger speakers (~60 years), creating challenges for standardization and documentation.</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>Morphosyntactic Simplification</h4>
+                                <p>Younger generations show tendencies toward verbal voice system simplification</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>Word Order Shifts</h4>
+                                <p>Gradual preference shift from traditional VOS to SVO order (Mandarin influence)</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>Phonological Changes</h4>
+                                <p>Subtle alterations in pronunciation patterns across generations</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>Documentation Implications</h4>
+                                <p>Critical considerations for corpus development and AI training data selection</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/api/placeholder/650/500" alt="Diagram showing generational differences in Truku language use" />
+                    </div>
                 </div>
-                <div class="slide-text">
-                    <h2>Field-based Approaches to Language, Cognition, and Human Nature (FALCOHN)</h2>
-                    <h3>Research Team</h3>
+            </div>
+        </div>
+
+        <!-- Slide 5: Research Team & Approach -->
+        <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">5/15</div>
+            </div>
+            <div class="slide-content">
+                <div class="full-width">
+                    <h2>FALCOHN Research Team & Approach</h2>
+                    
+                    <h3>Core Team Members</h3>
                     <ul>
+                        <li><strong>Masatoshi Koizumi</strong> (Tohoku University) - Principal Investigator and Project Leader</li>
                         <li><strong>So Miyagawa</strong> (University of Tsukuba)</li>
                         <li><strong>Manami Sato</strong> (Okinawa International University)</li>
-                        <li><strong>Masatoshi Koizumi</strong> (Tohoku University)</li>
+                        <li>Additional researchers working on parallel projects for Kaqchikel (Guatemala) and Tongan (Tonga) languages</li>
                     </ul>
                     
-                    <h3>Project Role</h3>
-                    <ul>
-                        <li>Leading technological partnership supporting community efforts</li>
-                        <li>Developing AI applications for language revitalization</li>
-                        <li>Implementing corpus development and annotation</li>
-                        <li>Facilitating NLP infrastructure development</li>
-                        <li>Establishing ethical protocols for data management</li>
-                    </ul>
+                    <h3>Project Background</h3>
+                    <p>FALCOHN (Field-based Approaches to Language, Cognition, and Human Nature) is a JSPS Kakenhi Grant-in-Aid (A) project: "Pseudo-Dynamic Preservation and Elucidation of Neural Processing of Endangered Languages Based on Natural Discourse Corpora with Physiological Indices."</p>
                     
-                    <h3>Approach Philosophy</h3>
+                    <h3>Project Approach Philosophy</h3>
                     <ul>
-                        <li>Supporting existing community initiatives through technology</li>
+                        <li>Supporting existing community initiatives through technological innovation</li>
                         <li>Maintaining community-centered research practices</li>
                         <li>Bridging linguistic science and computational innovation</li>
+                        <li>Community ownership of language data and intellectual property</li>
+                        <li>Comprehensive informed consent protocols for individual and collective consent</li>
+                        <li>Long-term preservation with community oversight</li>
                     </ul>
+                    
+                    <div class="content-box">
+                        <h4>Key Community Partners</h4>
+                        <p><strong>Taiwan Truku Cultural Promotion Association</strong> and <strong>Pastor Chang</strong> (key collaborator in the HeyGen AI Avatar project)</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Slide 6: Building Digital Infrastructure - Corpus -->
         <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">6/15</div>
+            </div>
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Digital corpus of Truku Seediq language data" />
-                </div>
-                <div class="slide-text">
-                    <h2>3. Building Digital Infrastructure</h2>
-                    <h3>Corpus Development</h3>
-                    <ul>
-                        <li><strong>Written Sources</strong>: Books, academic papers, websites, Biblical translations, government documents, Pear Film</li>
-                        <li><strong>Spoken Data</strong>:
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>Building Digital Infrastructure</h2>
+                        
+                        <h3>Corpus Development</h3>
+                        <p>Comprehensive corpus development is the foundation for all AI-powered language revitalization efforts.</p>
+                        
+                        <div class="ai-method">
+                            <h4>
+                                <div class="source-image">
+                                    <img src="/api/placeholder/40/40" alt="Written documents" />
+                                </div>
+                                Written Sources
+                            </h4>
+                            <ul>
+                                <li>Books and academic papers</li>
+                                <li>Biblical translations</li>
+                                <li>Government documents</li>
+                                <li>Pear Film narratives</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="ai-method">
+                            <h4>
+                                <div class="source-image">
+                                    <img src="/api/placeholder/40/40" alt="Audio recording" />
+                                </div>
+                                Spoken Data
+                            </h4>
                             <ul>
                                 <li>Archival recordings</li>
                                 <li>New collaborative recordings with community elders</li>
                                 <li>Natural conversations, traditional narratives, songs</li>
                             </ul>
-                        </li>
-                        <li><strong>Multi-layered Annotation</strong>:
+                        </div>
+                        
+                        <div class="ai-method">
+                            <h4>
+                                <div class="source-image">
+                                    <img src="/api/placeholder/40/40" alt="Annotated text" />
+                                </div>
+                                Multi-layered Annotation
+                            </h4>
                             <ul>
                                 <li>Standardized orthographic transcription</li>
                                 <li>Parallel translations</li>
                                 <li>Morphological tagging</li>
                                 <li>Syntactic annotation</li>
                             </ul>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/api/placeholder/650/500" alt="Digital corpus of Truku Seediq language data" />
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 7: Building Digital Infrastructure - Treebank and Ethics -->
+        <!-- Slide 7: Universal Dependencies Treebank -->
         <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">7/15</div>
+            </div>
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Universal Dependencies Treebank for Truku Seediq" />
-                </div>
-                <div class="slide-text">
-                    <h2>3. Building Digital Infrastructure (cont.)</h2>
-                    <h3>Universal Dependencies Treebank</h3>
+                <div class="full-width">
+                    <h2>Universal Dependencies Treebank</h2>
+                    
+                    <p>The development of a Universal Dependencies (UD) treebank for Truku Seediq enables syntactic parsing, cross-linguistic comparison, and advanced NLP applications.</p>
+                    
+                    <h3>Technical Implementation</h3>
                     <ul>
-                        <li><strong>Purpose</strong>: Enabling syntactic parsing, cross-linguistic comparison, and advanced NLP applications</li>
-                        <li><strong>Implementation</strong>: Adaptation of UD guidelines to Truku's unique linguistic features</li>
-                        <li><strong>Quality Control</strong>: Inter-annotator agreement checks, consistent treatment of focus/voice system</li>
+                        <li>Adaptation of UD guidelines to Truku's unique linguistic features</li>
+                        <li>Custom handling of Truku's voice/focus system (challenge for dependency representation)</li>
+                        <li>Inter-annotator agreement protocols for quality control</li>
+                        <li>Integration with existing UD ecosystem (245 treebanks across 141 languages)</li>
                     </ul>
                     
-                    <h3>Data Management Ethics</h3>
+                    <h3>Benefits for AI Applications</h3>
                     <ul>
-                        <li><strong>Data Sovereignty</strong>: Community control over language data and intellectual property</li>
-                        <li><strong>Access Protocols</strong>: Different levels for various users; priority access for community members</li>
-                        <li><strong>Informed Consent</strong>: Comprehensive procedures for individual and collective consent</li>
-                        <li><strong>Long-term Preservation</strong>: Secure archiving with community oversight</li>
+                        <li>Enables training of syntactic parsers</li>
+                        <li>Provides structural data for neural machine translation</li>
+                        <li>Supports grammatical error detection in educational tools</li>
+                        <li>Allows cross-linguistic transfer learning from resource-rich languages</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 8: AI and NLP Applications - NMT -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Neural Machine Translation architecture diagram" />
-                </div>
-                <div class="slide-text">
-                    <h2>4. AI and NLP Applications for Truku Seediq</h2>
-                    <h3>Neural Machine Translation (NMT)</h3>
+                    
                     <div class="content-box">
-                        <p><strong>Function</strong>: Translation between Truku Seediq and Mandarin Chinese/English</p>
-                        <p><strong>Technical Approach</strong>:</p>
-                        <ul>
-                            <li>Transfer learning from multilingual models</li>
-                            <li>Data augmentation</li>
-                            <li>Morphologically-aware modeling</li>
-                        </ul>
-                        <p><strong>Challenges</strong>:</p>
-                        <ul>
-                            <li>Limited parallel text data</li>
-                            <li>Handling complex morphology</li>
-                            <li>Evaluating translation quality</li>
-                        </ul>
+                        <h4>Current Progress</h4>
+                        <p>Collaborating with research associate Masato Hagiwara (Senior AI Researcher at Earth Species Project) to develop training data from over 31 books, papers, websites, and audio-visual field recordings.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 9: AI and NLP Applications - ASR -->
+        <!-- Slide 8: Neural Machine Translation -->
         <div class="slide">
-            <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Speech recognition waveform and transcript" />
-                </div>
-                <div class="slide-text">
-                    <h2>4. AI and NLP Applications for Truku Seediq (cont.)</h2>
-                    <h3>Automatic Speech Recognition (ASR) and Speech Generation (ASG)</h3>
-                    <div class="content-box">
-                        <p><strong>Function</strong>: Transcribing spoken Truku into text</p>
-                        <p><strong>Technical Approach</strong>: Fine-tuning self-supervised models like OpenAI's Whisper, audio data augmentation</p>
-                        <p><strong>Applications</strong>:</p>
-                        <ul>
-                            <li>Accelerating documentation</li>
-                            <li>Creating searchable speech corpora</li>
-                            <li>Enabling voice interfaces</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">8/15</div>
             </div>
-        </div>
-
-        <!-- Slide 10: AI and NLP Applications - HeyGen AI Avatar -->
-        <div class="slide">
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="HeyGen AI Avatar for Truku language learning" />
-                </div>
-                <div class="slide-text">
-                    <h2>4. AI and NLP Applications for Truku Seediq (cont.)</h2>
-                    <h3>HeyGen AI Avatar Project</h3>
-                    <ul>
-                        <li><strong>Field Work</strong>: February 2025 specialized data collection with Pastor Chang</li>
-                        <li><strong>Goal</strong>: Creation of virtual Truku language tutors providing interactive learning experiences</li>
-                        <li><strong>Implementation</strong>: High-quality audio-visual data specifically gathered for training AI avatars</li>
-                        <li><strong>Applications</strong>:
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>Neural Machine Translation (NMT)</h2>
+                        
+                        <h3>Function & Purpose</h3>
+                        <p>Development of neural machine translation systems between Truku Seediq and Mandarin Chinese/English to support digital access, documentation, and learning.</p>
+                        
+                        <div class="ai-method">
+                            <h4>Technical Approach</h4>
                             <ul>
-                                <li>Interactive conversation practice for learners</li>
-                                <li>Preserving cultural knowledge through digital elder storytelling</li>
-                                <li>Accessible language models when native speakers unavailable</li>
-                                <li>Engaging content for language learners</li>
-                                <li>Bridging geographic gaps for urban Truku community members</li>
+                                <li><strong>Model Architecture:</strong> Transfer learning from multilingual models (MarianMT)</li>
+                                <li><strong>Data Augmentation:</strong> Techniques to expand limited parallel text data</li>
+                                <li><strong>Morphologically-Aware Modeling:</strong> Special handling for Truku's complex morphology</li>
                             </ul>
-                        </li>
-                        <li><strong>Current Status</strong>: Initial community testing shows positive feedback</li>
+                        </div>
+                        
+                        <div class="ai-method">
+                            <h4>Challenges</h4>
+                            <ul>
+                                <li><strong>Limited Data:</strong> Small parallel corpus compared to high-resource languages</li>
+                                <li><strong>Complex Morphology:</strong> Handling voice system and affixation patterns</li>
+                                <li><strong>Evaluation Metrics:</strong> Developing appropriate evaluation for Truku quality</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-box">
+                            <h4>Lessons from Related Projects</h4>
+                            <p>Drawing from experiences with other endangered language translation projects (e.g., Japanese-Ainu with SacreBLEU score of 32.905), the Truku Seediq model requires approximately 400,000+ words of parallel text for effective performance.</p>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/api/placeholder/650/500" alt="Neural Machine Translation architecture diagram" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: ASR and Speech Generation -->
+        <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">9/15</div>
+            </div>
+            <div class="slide-content">
+                <div class="full-width">
+                    <h2>Automatic Speech Recognition (ASR) & Speech Generation</h2>
+                    
+                    <h3>Function & Purpose</h3>
+                    <p>Development of models to transcribe spoken Truku Seediq into text and generate natural Truku speech from text, supporting documentation and interactive learning.</p>
+                    
+                    <div class="ai-method">
+                        <h4>Technical Approach</h4>
+                        <ul>
+                            <li><strong>Model Architecture:</strong> Fine-tuning self-supervised models like OpenAI's Whisper</li>
+                            <li><strong>Audio Data Augmentation:</strong> Techniques to expand limited speech data</li>
+                            <li><strong>Speaker Diversity:</strong> Including multiple generations and dialectal variations</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Applications</h3>
+                    <ul>
+                        <li>Accelerating documentation of elder speakers</li>
+                        <li>Creating searchable speech corpora</li>
+                        <li>Enabling voice interfaces for educational applications</li>
+                        <li>Bridging oral and written traditions</li>
+                        <li>Supporting pronunciation training through audio feedback</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 11: AI and NLP Applications - Additional Tools -->
+        <!-- Slide 10: HeyGen AI Avatar Project -->
         <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">10/15</div>
+            </div>
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="SUNO AI song generation interface for Truku language" />
-                </div>
-                <div class="slide-text">
-                    <h2>4. AI and NLP Applications for Truku Seediq (cont.)</h2>
-                    <h3>Additional Tools</h3>
-                    <div class="content-box">
-                        <p><strong>SUNO AI songs</strong>: Musical language learning resources</p>
-                    </div>
-                    
-                    <div class="content-box">
-                        <p><strong>Educational Software</strong>:</p>
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>HeyGen AI Avatar Project</h2>
+                        
+                        <div class="content-box">
+                            <h4>Specialized Data Collection</h4>
+                            <p>February 2025 field work with Pastor Chang to gather high-quality audio-visual data specifically for training AI avatars</p>
+                        </div>
+                        
+                        <h3>Implementation</h3>
+                        <p>Creation of virtual Truku language tutors providing interactive learning experiences that preserve cultural knowledge through digital elder storytelling.</p>
+                        
+                        <h3>Applications</h3>
                         <ul>
-                            <li>Interactive learning modules</li>
-                            <li>Grammar visualization</li>
-                            <li>Automated feedback</li>
+                            <li>Interactive conversation practice for language learners</li>
+                            <li>Accessible language models when native speakers unavailable</li>
+                            <li>Engaging educational content for younger generations</li>
+                            <li>Bridging geographic gaps for urban Truku community members</li>
+                            <li>Preservation of cultural knowledge and oral traditions</li>
                         </ul>
+                        
+                        <div class="content-box">
+                            <h4>Current Status</h4>
+                            <p>Initial community testing shows positive feedback, with continued refinement based on community input and expanding to multiple speakers representing different ages and dialect variants.</p>
+                        </div>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/api/placeholder/650/500" alt="HeyGen AI Avatar for Truku language learning" />
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 12: Community-Based Participatory Research Model - Principles -->
+        <!-- Slide 11: Additional AI Tools -->
         <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">11/15</div>
+            </div>
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Collaborative research model diagram" />
+                <div class="full-width">
+                    <h2>Additional AI Tools</h2>
+                    
+                    <div class="ai-method">
+                        <h4>SUNO AI Songs</h4>
+                        <p>AI-generated musical language learning resources that combine traditional melodies with linguistic content.</p>
+                    </div>
+                    
+                    <div class="ai-method">
+                        <h4>Educational Software</h4>
+                        <ul>
+                            <li>Interactive learning modules with speech recognition</li>
+                            <li>Grammar visualization tools</li>
+                            <li>Automated feedback systems for learners</li>
+                            <li>Gamified learning experiences</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ai-method">
+                        <h4>Digital Dictionary with NLP Integration</h4>
+                        <p>Comprehensive digital lexicon with advanced search capabilities, example concordances, and contextual learning materials.</p>
+                    </div>
+                    
+                    <h3>Community-Centered AI Development</h3>
+                    <ul>
+                        <li>All tools co-designed with community stakeholders</li>
+                        <li>Regular feedback loops for improvement</li>
+                        <li>Technical training for community members</li>
+                        <li>Priority access for community use</li>
+                    </ul>
                 </div>
-                <div class="slide-text">
-                    <h2>5. Community-Based Participatory Research Model</h2>
+            </div>
+        </div>
+
+        <!-- Slide 12: Community-Based Participatory Research Model -->
+        <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">12/15</div>
+            </div>
+            <div class="slide-content">
+                <div class="full-width">
+                    <h2>Community-Based Participatory Research Model</h2>
+                    
                     <h3>Foundational Principles</h3>
                     <ul>
-                        <li><strong>Community Centrality</strong>: Prioritizing community needs, aspirations, and protocols</li>
-                        <li><strong>Decolonizing Research</strong>: Challenging extractive models, centering indigenous knowledge</li>
-                        <li><strong>Reciprocal Relationships</strong>: Building long-term partnerships based on trust and mutual benefit</li>
-                        <li><strong>Capacity Building</strong>: Empowering community through training and knowledge transfer</li>
+                        <li><strong>Community Centrality:</strong> Prioritizing community needs, aspirations, and protocols</li>
+                        <li><strong>Decolonizing Research:</strong> Challenging extractive models, centering indigenous knowledge</li>
+                        <li><strong>Reciprocal Relationships:</strong> Building long-term partnerships based on trust and mutual benefit</li>
+                        <li><strong>Capacity Building:</strong> Empowering community through technology transfer and knowledge sharing</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 13: Community-Based Participatory Research Model - Implementation -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Workshop with community members and researchers" />
-                </div>
-                <div class="slide-text">
-                    <h2>5. Community-Based Participatory Research Model (cont.)</h2>
+                    
                     <h3>Implementation Mechanisms</h3>
                     <ul>
-                        <li><strong>Collaboration</strong>: Partnership with qkktt and other community stakeholders</li>
-                        <li><strong>Co-Design</strong>: Community members actively shaping tool features and interfaces</li>
-                        <li><strong>Technical Training</strong>: Workshops on corpus annotation, digital resource management, language documentation</li>
-                        <li><strong>Regular Consultation</strong>: Ongoing dialogue to ensure alignment with community goals</li>
+                        <li><strong>Co-Design:</strong> Community members actively shaping tool features and interfaces</li>
+                        <li><strong>Technical Training:</strong> Workshops on corpus annotation, digital resource management</li>
+                        <li><strong>Regular Consultation:</strong> Ongoing dialogue to ensure alignment with community goals</li>
+                        <li><strong>Data Sovereignty:</strong> Community control over language data and intellectual property</li>
                     </ul>
+                    
+                    <div class="content-box">
+                        <h4>Recent Example: HeyGen Avatar Development</h4>
+                        <p>Pastor Chang's active collaboration in February 2025 field trip, providing cultural guidance on appropriate representation and linguistic authenticity.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 14: Community-Based Participatory Research Model - Examples -->
+        <!-- Slide 13: Current Challenges -->
         <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">13/15</div>
+            </div>
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Pastor Chang during Avatar development recording session" />
-                </div>
-                <div class="slide-text">
-                    <h2>5. Community-Based Participatory Research Model (cont.)</h2>
-                    <h3>Concrete Examples of Collaboration</h3>
-                    <ul>
-                        <li><strong>Avatar Development</strong>: Pastor Chang's support in February 2025 field trip for HeyGen avatar training</li>
-                        <li><strong>Prioritization</strong>: Community input determining which linguistic contexts and cultural practices to document first</li>
-                        <li><strong>Interface Design</strong>: Feedback from community members shaping usability of tools</li>
-                        <li><strong>Ethical Protocols</strong>: Collectively developed data access policies and consent procedures</li>
-                    </ul>
+                <div class="full-width">
+                    <h2>Current Challenges</h2>
+                    
+                    <div class="ai-method">
+                        <h4>Data Scarcity</h4>
+                        <ul>
+                            <li>Limited digital corpus compared to high-resource languages</li>
+                            <li>Need for ~400,000+ words for effective NMT performance</li>
+                            <li>Challenges in capturing diverse speech data across generations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ai-method">
+                        <h4>Technical Complexity</h4>
+                        <ul>
+                            <li>Adapting NLP methods for Truku's complex linguistic structures</li>
+                            <li>Balancing standardization with dialect variation</li>
+                            <li>Handling intergenerational language differences in AI models</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ai-method">
+                        <h4>Resource Limitations</h4>
+                        <ul>
+                            <li>Infrastructure requirements for AI development</li>
+                            <li>Securing sustainable funding for long-term preservation</li>
+                            <li>Building technical capacity within the community</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ai-method">
+                        <h4>Digital Divide</h4>
+                        <ul>
+                            <li>Ensuring equitable access to technology within the community</li>
+                            <li>Developing user-friendly interfaces for all generations</li>
+                            <li>Bridging urban-rural technological gaps</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 15: Challenges and Future Directions -->
+        <!-- Slide 14: Future Research Directions -->
         <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">14/15</div>
+            </div>
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Challenges in language revitalization infographic" />
-                </div>
-                <div class="slide-text">
-                    <h2>6. Challenges and Future Directions</h2>
-                    <h3>Current Challenges</h3>
-                    <ul>
-                        <li><strong>Data Scarcity</strong>: Limited digital resources for robust model training</li>
-                        <li><strong>Technical Complexity</strong>: Adapting NLP methods for Truku's linguistic structures</li>
-                        <li><strong>Digital Divide</strong>: Ensuring equitable access to technology within the community</li>
-                        <li><strong>Resource Limitations</strong>: Securing sustainable funding and support</li>
-                    </ul>
+                <div class="full-width">
+                    <h2>Future Research Directions</h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>Model Refinement & Expansion</h4>
+                            <div class="timeline-date">2025-2026</div>
+                            <p>Improving NMT and ASR performance through specialized architectures; expanding HeyGen avatars to include more speakers and cultural contexts</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4>Target Audience Adaptation</h4>
+                            <div class="timeline-date">2026-2027</div>
+                            <p>Focusing on younger generations with limited Truku exposure; developing age-appropriate learning materials</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4>Pedagogical Assessment</h4>
+                            <div class="timeline-date">2027-2028</div>
+                            <p>Evaluating AI tools' effectiveness for language acquisition; refining based on learning outcomes</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4>Unified Platform Integration</h4>
+                            <div class="timeline-date">2028+</div>
+                            <p>Creating comprehensive platforms combining multiple language technologies; sharing methodologies with other endangered Formosan languages</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h4>Knowledge Transfer Potential</h4>
+                        <p>Methodologies developed for Truku Seediq can be adapted for other endangered Formosan languages, creating a scalable model for AI-powered language revitalization.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 16: Challenges - Intergenerational Language Variation -->
+        <!-- Slide 15: Conclusion -->
         <div class="slide">
-            <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Diagram showing generational differences in Truku language use" />
-                </div>
-                <div class="slide-text">
-                    <h2>6. Challenges and Future Directions (cont.)</h2>
-                    <h3>Intergenerational Language Variation</h3>
-                    <ul>
-                        <li><strong>Generational Gap</strong>: Significant linguistic variations between elder speakers (80-90 years) and younger speakers (~60 years)</li>
-                        <li><strong>Morphosyntactic Simplification</strong>: Younger generations show tendencies toward verbal voice system simplification</li>
-                        <li><strong>Word Order Shifts</strong>: Gradual preference shift from traditional VOS to SVO order (Mandarin influence)</li>
-                        <li><strong>Phonological Changes</strong>: Subtle alterations in pronunciation patterns across generations</li>
-                        <li><strong>Documentation Implications</strong>: Important considerations for corpus development and AI training data selection</li>
-                        <li><strong>Cultural Dimensions</strong>: Language changes reflect broader shifts in community structure and lifestyle patterns</li>
-                    </ul>
-                </div>
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">15/15</div>
             </div>
-        </div>
-
-        <!-- Slide 17: Future Research Areas -->
-        <div class="slide">
             <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Roadmap for future Truku language technology development" />
-                </div>
-                <div class="slide-text">
-                    <h2>6. Challenges and Future Directions (cont.)</h2>
-                    <h3>Future Research Areas</h3>
-                    <ul>
-                        <li><strong>Model Refinement</strong>: Improving NMT and ASR performance through specialized architectures</li>
-                        <li><strong>Avatar Expansion</strong>: Including more speakers, cultural contexts, and age-appropriate versions</li>
-                        <li><strong>Target Audience Adaptation</strong>: Focus on younger generations with limited Truku exposure</li>
-                        <li><strong>Pedagogical Assessment</strong>: Evaluating AI tools' effectiveness for language acquisition</li>
-                        <li><strong>Content Development</strong>: Creating culturally relevant, age-appropriate materials</li>
-                        <li><strong>Integration</strong>: Unified platforms combining multiple language technologies</li>
-                        <li><strong>Knowledge Sharing</strong>: Adapting methodology for other endangered Formosan languages</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 18: Conclusion -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Visual summary of Truku Seediq language revitalization project" />
-                </div>
-                <div class="slide-text">
-                    <h2>7. Conclusion</h2>
+                <div class="full-width">
+                    <h2>Conclusion</h2>
+                    
                     <p>Our research demonstrates how ethically implemented AI technologies can empower indigenous communities in their language revitalization efforts. By combining cutting-edge NLP methods with deep community partnership, we are creating a sustainable framework for Truku Seediq language revitalization that honors both linguistic heritage and technological innovation.</p>
-                    <p>The HeyGen AI avatar project exemplifies the potential for thoughtful technological applications to support community-driven language reclamation and cultural preservation.</p>
-                </div>
-            </div>
-        </div>
-
-   
-
-        <!-- Slide 20: Taiwan Truku Cultural Promotion Association -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Taiwan Truku Cultural Promotion Association activities and logo" />
-                </div>
-                <div class="slide-text">
-                    <h2>Taiwan Truku Cultural Promotion Association</h2>
-                    <h3>Organizational Background</h3>
+                    
+                    <h3>Key Innovations</h3>
                     <ul>
-                        <li>Established in 2021</li>
-                        <li>Formerly: Taiwan Truku Language Culture Heritage and Education Association</li>
-                        <li>Community-led organization focused on language and cultural preservation</li>
+                        <li>Development of specialized corpora and Universal Dependencies treebank</li>
+                        <li>Neural machine translation between Truku, Mandarin, and English</li>
+                        <li>Speech recognition and generation models adapted for Truku phonology</li>
+                        <li>HeyGen AI avatars preserving cultural knowledge through digital elder storytelling</li>
+                        <li>Community-centered research model ensuring data sovereignty and ethical implementation</li>
                     </ul>
                     
-                    <h3>Key Activities</h3>
-                    <ul>
-                        <li><strong>Community Consensus-Building</strong>: Unifying revitalization efforts</li>
-                        <li><strong>Resource Development</strong>: Creating language learning materials</li>
-                        <li><strong>Educational Initiatives</strong>: Supporting language acquisition programs</li>
-                        <li><strong>Media Production</strong>: Developing Truku language content</li>
-                        <li><strong>Collaborative Governance</strong>: Working with governmental bodies on policy</li>
-                    </ul>
+                    <div class="content-box">
+                        <h4>Acknowledgements</h4>
+                        <p>We express our sincere gratitude to the Taiwan Truku Cultural Promotion Association, Pastor Chang, and the Truku Seediq community for their invaluable contributions to this research.</p>
+                    </div>
                     
-                    <h3>Role in Project</h3>
-                    <ul>
-                        <li>Primary community partner</li>
-                        <li>Providing cultural guidance and validation</li>
-                        <li>Facilitating community engagement and participation</li>
-                        <li>Contributing to design of technological solutions</li>
-                    </ul>
+                                            <div class="citation">
+                        Field-based Approaches to Language, Cognition, and Human Nature (FALCOHN)<br>
+                        Led by Prof. Masatoshi Koizumi (Tohoku University)<br>
+                        Research Team: So Miyagawa, Manami Sato, and fellow researchers working on Kaqchikel and Tongan languages
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Slide 21: Pastor Chang and the Truku Seediq Community -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Truku Seediq community members engaged in cultural activities" />
-                </div>
-                <div class="slide-text">
-                    <h2>Pastor Chang and the Truku Seediq Community</h2>
-                    <h3>Pastor Chang's Contribution</h3>
-                    <ul>
-                        <li>Key collaborator in February 2025 HeyGen AI Avatar project</li>
-                        <li>Provided specialized data collection support</li>
-                        <li>Facilitated community connections and participation</li>
-                        <li>Offered cultural and linguistic expertise</li>
-                    </ul>
-                    
-                    <h3>The Truku Seediq Community</h3>
-                    <ul>
-                        <li><strong>Population</strong>: ~32,333 ethnic population; ~4,217 fluent speakers (2021)</li>
-                        <li><strong>Cultural Heritage</strong>: Tminun (weaving), Patasan (facial tattooing)</li>
-                        <li><strong>Historical Significance</strong>: Truku War (1914), Wushe Incident (1930)</li>
-                        <li><strong>Traditional System</strong>: Governed by gaya (ancestral rules, norms, taboos)</li>
-                    </ul>
-                    
-                    <h3>Community Engagement in Project</h3>
-                    <ul>
-                        <li>Active participation in tool design and development</li>
-                        <li>Providing feedback on cultural representation</li>
-                        <li>Contributing to data collection and validation</li>
-                        <li>Determining prioritization of linguistic contexts for documentation</li>
-                        <li>Co-developing ethical protocols for data management</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 22: Acknowledgements -->
-        <div class="slide">
-            <div class="slide-content title-slide">
-                <div class="slide-image">
-                    <img src="/api/placeholder/650/350" alt="Collaborative group photo of research team and community members" />
-                </div>
-                <h2>Acknowledgements</h2>
-                <p>We express our sincere gratitude to:</p>
-                <p class="highlight">Field-based Approaches to Language, Cognition, and Human Nature (FALCOHN)</p>
-                <p class="highlight">Taiwan Truku Cultural Promotion Association</p>
-                <p class="highlight">Pastor Chang and the Truku Seediq community</p>
-                <p>For their invaluable contributions to this research</p>
             </div>
         </div>
     </div>
 
     <div class="navigation">
-        <button class="nav-btn" id="prev-btn">Previous</button>
-        <button class="nav-btn" id="next-btn">Next</button>
-    </div>
-    
-    <div class="slide-indicator">
-        Slide <span id="current-slide">1</span> of <span id="total-slides">22</span>
+        <button class="nav-btn" id="prev-btn">← Previous</button>
+        <button class="nav-btn" id="next-btn">Next →</button>
     </div>
 
     <script>
@@ -954,17 +1029,23 @@
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
-            const currentSlideIndicator = document.getElementById('current-slide');
-            const totalSlidesIndicator = document.getElementById('total-slides');
+            const progressBar = document.getElementById('progressBar');
             
             let currentSlideIndex = 0;
+            const totalSlides = slides.length;
             
-            // Set up total slides indicator
-            totalSlidesIndicator.textContent = slides.length;
+            // Update slide numbers in headers
+            slides.forEach((slide, index) => {
+                const slideNumber = slide.querySelector('.slide-number');
+                if (slideNumber) {
+                    slideNumber.textContent = `${index + 1}/${totalSlides}`;
+                }
+            });
             
-            // Update current slide indicator
-            function updateSlideIndicator() {
-                currentSlideIndicator.textContent = currentSlideIndex + 1;
+            // Update progress bar
+            function updateProgressBar() {
+                const progress = ((currentSlideIndex + 1) / totalSlides) * 100;
+                progressBar.style.width = `${progress}%`;
             }
             
             // Update button states
@@ -978,12 +1059,17 @@
                 slides.forEach((slide, index) => {
                     if (index === currentSlideIndex) {
                         slide.classList.add('active');
+                        slide.classList.remove('prev');
+                    } else if (index < currentSlideIndex) {
+                        slide.classList.remove('active');
+                        slide.classList.add('prev');
                     } else {
                         slide.classList.remove('active');
+                        slide.classList.remove('prev');
                     }
                 });
                 
-                updateSlideIndicator();
+                updateProgressBar();
                 updateButtonStates();
             }
             
@@ -1020,7 +1106,7 @@
             
             // Initial setup
             updateButtonStates();
-            updateSlideIndicator();
+            updateProgressBar();
         });
     </script>
 </body>
