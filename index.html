@@ -432,6 +432,59 @@
             }
         }
         
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            margin-bottom: 20px;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .flow-diagram {
+            width: 100%;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .code-block {
+            background-color: #2d2d2d;
+            color: #e6e6e6;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        .code-comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+        
+        .tech-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
         @media (max-width: 900px) {
             .two-column {
                 flex-direction: column;
@@ -450,27 +503,6 @@
             .header h1 {
                 font-size: 1rem;
             }
-        }
-        
-        /* Citation styles */
-        sup {
-            color: var(--accent-color);
-            font-weight: bold;
-            font-size: 0.7em;
-            vertical-align: super;
-            margin-left: 2px;
-        }
-        
-        .references {
-            font-size: 0.9rem;
-            padding-left: 2rem;
-            line-height: 1.5;
-            margin-bottom: 30px;
-        }
-        
-        .references li {
-            margin-bottom: 8px;
-            text-align: left;
         }
     </style>
 </head>
@@ -492,7 +524,7 @@
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">2/16</div>
+                <div class="slide-number">2/19</div>
             </div>
             <div class="slide-content">
                 <div class="two-column">
@@ -501,22 +533,22 @@
                         
                         <div class="data-stat">
                             <div class="number">40-44%</div>
-                            <div class="label">of world's ~7,000 languages endangered<sup>1</sup></div>
+                            <div class="label">of world's ~7,000 languages endangered</div>
                         </div>
                         
                         <ul>
-                            <li><strong>Rate of Loss:</strong> Approximately one language disappears every two weeks<sup>2</sup></li>
+                            <li><strong>Rate of Loss:</strong> Approximately one language disappears every two weeks</li>
                             <li><strong>Significance:</strong> Each extinction represents loss of unique cultural heritage, knowledge systems, and intellectual diversity</li>
                         </ul>
                         
                         <h3>Taiwan's Context</h3>
-                        <p>Taiwan is home to numerous endangered Austronesian languages affected by colonial legacies, Mandarin dominance, and socioeconomic pressures.<sup>3</sup></p>
+                        <p>Taiwan is home to numerous endangered Austronesian languages affected by colonial legacies, Mandarin dominance, and socioeconomic pressures.</p>
                         
                         <div class="content-box">
                             <h4>Truku Seediq Status</h4>
                             <ul>
                                 <li>Ethnic population: ~32,333</li>
-                                <li>Fluent speakers: ~4,217 (2021 CIP data)<sup>4</sup></li>
+                                <li>Fluent speakers: ~4,217 (2021 CIP data)</li>
                                 <li>UNESCO Classification: <span class="highlight">Critically Endangered</span></li>
                                 <li>Sharp decline in intergenerational transmission</li>
                             </ul>
@@ -533,7 +565,7 @@
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">3/16</div>
+                <div class="slide-number">3/19</div>
             </div>
             <div class="slide-content">
                 <div class="full-width">
@@ -541,84 +573,41 @@
                     
                     <h3>Linguistic Profile</h3>
                     <ul>
-                        <li><strong>Classification:</strong> Atayalic branch of Austronesian family<sup>5</sup></li>
+                        <li><strong>Classification:</strong> Atayalic branch of Austronesian family</li>
                         <li><strong>Phonology:</strong>
                             <ul>
                                 <li>19 consonants, 4 vowels (/i/, /u/, /ə/, /a/)</li>
                                 <li>Distinctive velar fricatives and uvular stops</li>
-                                <li>Notable dorsal consonant harmony process<sup>6</sup></li>
+                                <li>Notable dorsal consonant harmony process</li>
                             </ul>
                         </li>
                         <li><strong>Morphology:</strong>
                             <ul>
                                 <li>Complex affixation marking voice/focus system</li>
-                                <li>Productive reduplication for pluralization and reciprocal forms<sup>6</sup></li>
+                                <li>Productive reduplication for pluralization and reciprocal forms</li>
                             </ul>
                         </li>
                         <li><strong>Syntax:</strong>
                             <ul>
                                 <li>Predominant VOS word order with ergative alignment</li>
-                                <li>Uses various "predicate extenders" for aspectual, modal, and adverbial meanings<sup>7</sup></li>
+                                <li>Uses various "predicate extenders" for aspectual, modal, and adverbial meanings</li>
                             </ul>
                         </li>
                     </ul>
                     
                     <div class="content-box">
                         <h4>Current Community Initiatives</h4>
-                        <p>The <strong>Taiwan Truku Cultural Promotion Association</strong> (est. 2021) leads revitalization efforts through community consensus-building, resource development, educational initiatives, and media production.<sup>8</sup></p>
+                        <p>The <strong>Taiwan Truku Cultural Promotion Association</strong> (est. 2021) leads revitalization efforts through community consensus-building, resource development, educational initiatives, and media production.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 4: Challenge of Intergenerational Language Variation -->
+        <!-- Slide 4: Research Team & Approach -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">4/16</div>
-            </div>
-            <div class="slide-content">
-                <div class="two-column">
-                    <div class="slide-text">
-                        <h2>Challenge: Intergenerational Language Variation</h2>
-                        
-                        <h3>Generational Gap in Truku Seediq</h3>
-                        <p>Significant linguistic variations exist between elder speakers (80-90 years) and younger speakers (~60 years), creating challenges for standardization and documentation.<sup>9</sup></p>
-                        
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <h4>Morphosyntactic Simplification</h4>
-                                <p>Younger generations show tendencies toward verbal voice system simplification</p>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <h4>Word Order Shifts</h4>
-                                <p>Gradual preference shift from traditional VOS to SVO order (Mandarin influence)<sup>10</sup></p>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <h4>Phonological Changes</h4>
-                                <p>Subtle alterations in pronunciation patterns across generations</p>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <h4>Documentation Implications</h4>
-                                <p>Critical considerations for corpus development and AI training data selection</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-image">
-                        <img src="/api/placeholder/650/500" alt="Diagram showing generational differences in Truku language use" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 5: Research Team & Approach -->
-        <div class="slide">
-            <div class="header">
-                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">5/16</div>
+                <div class="slide-number">4/19</div>
             </div>
             <div class="slide-content">
                 <div class="full-width">
@@ -629,25 +618,25 @@
                         <div class="timeline-item">
                             <h4>OS科研1 (2010-2014)</h4>
                             <div class="timeline-date">Grant-in-Aid for Scientific Research (S)</div>
-                            <p>"A field-based cognitive neuroscientific study of the processing of OS-type languages" - Focus on Kaqchikel Mayan<sup>11</sup></p>
+                            <p>"A field-based cognitive neuroscientific study of the processing of OS-type languages" - Focus on Kaqchikel Mayan</p>
                         </div>
                         
                         <div class="timeline-item">
                             <h4>OS科研2 (2015-2019)</h4>
                             <div class="timeline-date">Grant-in-Aid for Scientific Research (A)</div>
-                            <p>"A field-based psycholinguistic study of the discourse processing mechanisms of OS languages" - Expanded to include Truku<sup>12</sup></p>
+                            <p>"A field-based psycholinguistic study of the discourse processing mechanisms of OS languages" - Expanded to include Truku</p>
                         </div>
                         
                         <div class="timeline-item">
                             <h4>OS科研3 (2019-2024)</h4>
                             <div class="timeline-date">Grant-in-Aid for Scientific Research (S)</div>
-                            <p>"Field-based Cognitive Neuroscientific Study of Word Order in Language and Order of Thinking from the OS Language Perspective"<sup>13</sup></p>
+                            <p>"Field-based Cognitive Neuroscientific Study of Word Order in Language and Order of Thinking from the OS Language Perspective"</p>
                         </div>
                         
                         <div class="timeline-item">
                             <h4>OS科研4 (2024-2027)</h4>
                             <div class="timeline-date">Grant-in-Aid for Scientific Research (A)</div>
-                            <p>"Pseudo-Dynamic Preservation and Elucidation of Neural Processing of Endangered Languages Based on Natural Discourse Corpora with Physiological Indices"<sup>14</sup></p>
+                            <p>"Pseudo-Dynamic Preservation and Elucidation of Neural Processing of Endangered Languages Based on Natural Discourse Corpora with Physiological Indices"</p>
                         </div>
                     </div>
                     
@@ -659,20 +648,346 @@
                         <li>Comparing OS-type languages (VOS languages like Truku and Kaqchikel) with SO-type languages</li>
                         <li>Investigating the relationship between language order and thought order</li>
                     </ul>
-                    
-                    <div class="content-box">
-                        <h4>Key Community Partners</h4>
-                        <p><strong>Taiwan Truku Cultural Promotion Association</strong> and <strong>Pastor Chang</strong> (key collaborator in the HeyGen AI Avatar project)<sup>15</sup></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Key Collaborator - Dr. Apay Ai-yu Tang -->
+        <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">5/19</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>Dr. Apay Ai-yu Tang</h2>
+                        
+                        <div class="content-box">
+                            <h4>Indigenous Scholar & Language Specialist</h4>
+                            <p>Dr. Apay Ai-yu Tang is a Truku Seediq scholar who has made significant contributions to the documentation, preservation, and revitalization of Indigenous languages in Taiwan.</p>
+                        </div>
+                        
+                        <h3>Academic Background</h3>
+                        <ul>
+                            <li><strong>Ph.D. in Linguistics</strong> - University of Hawaiʻi at Mānoa (2011)</li>
+                            <li><strong>Associate Professor</strong> - Department of Indigenous Language and Communication, National Dong Hwa University</li>
+                            <li><strong>Faculty Affiliate</strong> - Center for International Indigenous Affairs (CIIA)</li>
+                        </ul>
+                        
+                        <h3>Contributions to Truku Seediq Research</h3>
+                        <ul>
+                            <li><strong>Language Documentation</strong> - Extensive work documenting the Truku Seediq language structure and usage</li>
+                            <li><strong>Psycholinguistic Assessment</strong> - Developed methodologies to assess language shift and proficiency</li>
+                            <li><strong>Language Planning</strong> - Created remedial strategies for language revitalization</li>
+                            <li><strong>Syntax Research</strong> - Co-authored studies on Seediq syntax and language processing</li>
+                        </ul>
+                        
+                        <h3>Collaboration with FALCOHN</h3>
+                        <ul>
+                            <li>Provides critical cultural and linguistic expertise to ensure authentic representation of Truku language</li>
+                            <li>Bridges academic research with community needs and values</li>
+                            <li>Guides ethical approaches to language data collection and AI implementation</li>
+                            <li>Evaluates effectiveness of language teaching methodologies</li>
+                        </ul>
+                    </div>
+                    <div class="slide-image">
+                        <div class="profile-image">
+                            <img src="/api/placeholder/400/400" alt="Dr. Apay Ai-yu Tang" />
+                        </div>
+                        
+                        <div class="content-box">
+                            <h4>Specialized Expertise</h4>
+                            <p>Dr. Tang's doctoral research "From diagnosis to remedial plan: A psycholinguistic assessment of language shift, proficiency, and language planning in Truku Seediq" (2011) established a framework that continues to inform the FALCOHN project's methodological approach.</p>
+                        </div>
+                        
+                        <div class="content-box">
+                            <h4>Community-Centered Approach</h4>
+                            <p>Dr. Tang emphasizes grassroots initiatives and collaborative partnerships, believing that effective language revitalization must be driven by and for the community, with technology serving as a supportive tool.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 6: Building Digital Infrastructure - Corpus -->
+        <!-- Slide 6: Key Collaborator - Pastor Chang -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">6/16</div>
+                <div class="slide-number">6/19</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>Pastor Chang</h2>
+                        
+                        <div class="content-box">
+                            <h4>Community Elder & AI Avatar Model</h4>
+                            <p>Pastor Chang is a key cultural resource person in the Truku community who serves as the primary model for the AI Avatar teacher in the Truku AI-driven revitalization project. He contributes significantly to language preservation through his extensive Bible translation work and audio-visual documentation efforts.</p>
+                        </div>
+                        
+                        <h3>Contributions to Language Preservation</h3>
+                        <ul>
+                            <li><strong>Extensive Bible Translation</strong> - Has translated numerous books from both the New Testament (新約聖書) and Old Testament (旧約聖書) into Truku Seediq, creating a valuable corpus of language materials</li>
+                            <li><strong>Digital Documentation</strong> - Records and uploads audio and text videos of Truku Bible translations to YouTube</li>
+                            <li><strong>HeyGen AI Avatar Model</strong> - Serves as the primary model and voice for the AI teacher in the Truku AI-driven revitalization project</li>
+                            <li><strong>Cultural Knowledge</strong> - Provides authentic cultural context essential for AI-powered language modeling</li>
+                        </ul>
+                        
+                        <h3>Extensive Bible Translation Work</h3>
+                        <p>Pastor Chang has translated numerous books from both the New Testament (新約聖書) and Old Testament (旧約聖書) into Truku Seediq, creating a valuable corpus of language materials. This extensive work includes major portions of Ephesians, Galatians, Colossians, Hebrews, Matthew, John, Revelation, Psalms, Genesis, and many others.</p>
+                    </div>
+                    <div class="slide-image">
+                        <div class="profile-image">
+                            <img src="/api/placeholder/400/400" alt="Pastor Chang" />
+                        </div>
+                        
+                        <div class="content-box">
+                            <h4>Digital Preservation Efforts</h4>
+                            <p>Creates and uploads YouTube videos featuring Truku audio recordings synchronized with text, creating valuable linguistic resources for language learners and researchers.</p>
+                        </div>
+                        
+                        <div class="content-box">
+                            <h4>AI Teacher Avatar</h4>
+                            <p>Pastor Chang's likeness, voice, and teaching style form the foundation of the primary AI Avatar teacher in the Truku AI-driven revitalization project. His cultural authority and natural teaching ability make him the ideal model for creating a virtual instructor that resonates with the community.</p>
+                        </div>
+                        
+                        <div class="content-box">
+                            <h4>Community Impact</h4>
+                            <p>His work has helped establish a significant corpus of authentic, high-quality Truku language content that serves as valuable training data for AI language models while simultaneously providing learning materials for community members.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Introduction to AI for Language Revitalization -->
+        <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">7/19</div>
+            </div>
+            <div class="slide-content">
+                <div class="full-width">
+                    <h2>AI Technologies for Language Revitalization</h2>
+                    
+                    <h3>How AI Can Address Language Endangerment</h3>
+                    <ul>
+                        <li><strong>Automated Documentation:</strong> Processing large volumes of language data efficiently</li>
+                        <li><strong>Accessible Learning:</strong> Creating scalable, always-available learning resources</li>
+                        <li><strong>Preservation of Endangered Knowledge:</strong> Capturing cultural contexts beyond just words</li>
+                        <li><strong>Cross-Generational Transfer:</strong> Bridging the gap when intergenerational transmission is broken</li>
+                    </ul>
+                    
+                    <div class="content-box">
+                        <h4>Core AI Technologies in Our Project</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                            <div class="tech-pill">Deep Learning</div>
+                            <div class="tech-pill">Fine-Tuning</div>
+                            <div class="tech-pill">Retrieval Augmented Generation</div>
+                            <div class="tech-pill">Neural Machine Translation</div>
+                            <div class="tech-pill">Speech Recognition</div>
+                            <div class="tech-pill">Digital Avatars</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Technology + Community Partnership</h3>
+                    <p>Our approach integrates cutting-edge AI technologies with deep community engagement, ensuring that:</p>
+                    <ul>
+                        <li>Technologies serve community needs, not the reverse</li>
+                        <li>Cultural knowledge and context remain under community control</li>
+                        <li>Technological solutions complement rather than replace human interactions</li>
+                        <li>Capacity building enables community members to develop and maintain their own digital tools</li>
+                    </ul>
+                    
+                    <div class="content-box">
+                        <h4>Ethical Framework</h4>
+                        <p>Our project adheres to principles of data sovereignty, informed consent, community control, and reciprocal research relationships to ensure that AI technologies support rather than extract from the Truku community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Deep Learning Fundamentals -->
+        <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">8/19</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>Deep Learning Fundamentals</h2>
+                        
+                        <h3>What is Deep Learning?</h3>
+                        <p>Deep learning is a subset of machine learning that uses neural networks with multiple layers (deep neural networks) to progressively extract higher-level features from raw input.</p>
+                        
+                        <h3>Neural Networks Architecture</h3>
+                        <ul>
+                            <li><strong>Input Layer:</strong> Receives raw data (text, audio, etc.)</li>
+                            <li><strong>Hidden Layers:</strong> Multiple processing layers that transform the data</li>
+                            <li><strong>Output Layer:</strong> Produces the final prediction or generation</li>
+                        </ul>
+                        
+                        <div class="content-box">
+                            <h4>Key Deep Learning Models for NLP</h4>
+                            <ul>
+                                <li><strong>Transformer Models:</strong> Architecture using self-attention mechanisms (basis for BERT, GPT, T5)</li>
+                                <li><strong>Encoder-Decoder:</strong> Processes input sequence to generate output sequence (translation, summarization)</li>
+                                <li><strong>Language Models:</strong> Predict probability distributions over sequences of words</li>
+                            </ul>
+                        </div>
+                        
+                        <h3>Relevance to Language Revitalization</h3>
+                        <p>For Truku Seediq revitalization, deep learning enables:</p>
+                        <ul>
+                            <li>Processing limited language data efficiently</li>
+                            <li>Creating language models that capture grammatical patterns</li>
+                            <li>Developing speech recognition systems for elder speakers</li>
+                            <li>Generating authentic-sounding speech for teaching tools</li>
+                        </ul>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/api/placeholder/650/500" alt="Neural network architecture diagram" />
+                        
+                        <div class="code-block">
+                            <span class="code-comment"># Simple neural network architecture</span><br>
+                            model = tf.keras.Sequential([<br>
+                            &nbsp;&nbsp;tf.keras.layers.Embedding(vocab_size, embedding_dim),<br>
+                            &nbsp;&nbsp;tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64)),<br>
+                            &nbsp;&nbsp;tf.keras.layers.Dense(64, activation='relu'),<br>
+                            &nbsp;&nbsp;tf.keras.layers.Dense(output_size)<br>
+                            ])
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Fine-tuning for Low-Resource Languages -->
+        <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">9/19</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>Fine-tuning for Low-Resource Languages</h2>
+                        
+                        <h3>What is Fine-tuning?</h3>
+                        <p>Fine-tuning is the process of taking a pre-trained model and adapting it to a specific task or domain by training it on a smaller, specialized dataset.</p>
+                        
+                        <div class="content-box">
+                            <h4>Challenges for Low-Resource Languages</h4>
+                            <ul>
+                                <li>Limited text and audio data available</li>
+                                <li>Lack of representation in pre-training datasets</li>
+                                <li>Unique linguistic features not captured in general models</li>
+                                <li>Resource constraints for full model training</li>
+                            </ul>
+                        </div>
+                        
+                        <h3>Parameter-Efficient Fine-tuning (PEFT)</h3>
+                        <p>Our approach for Truku Seediq uses efficient techniques that update only a small subset of model parameters:</p>
+                        <ul>
+                            <li><strong>Low-Rank Adaptation (LoRA):</strong> Adds trainable rank decomposition matrices</li>
+                            <li><strong>Prompt Tuning:</strong> Learns continuous prompt vectors while keeping the model frozen</li>
+                            <li><strong>Adapter Layers:</strong> Inserts small trainable modules between existing layers</li>
+                        </ul>
+                        
+                        <h3>Implementation for Truku Seediq</h3>
+                        <p>We apply these techniques to develop:</p>
+                        <ul>
+                            <li>Language models that understand Truku grammatical structures</li>
+                            <li>Text-to-speech systems tuned to authentic pronunciation</li>
+                            <li>Translation models between Truku, Mandarin, and English</li>
+                        </ul>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/api/placeholder/650/300" alt="Fine-tuning diagram for low-resource languages" />
+                        
+                        <div class="flow-diagram">
+                            <img src="/api/placeholder/650/200" alt="Parameter-efficient fine-tuning workflow" />
+                        </div>
+                        
+                        <div class="content-box">
+                            <h4>Results from Preliminary Tests</h4>
+                            <p>Initial fine-tuning of multilingual models on Pastor Chang's Bible translations has shown promising results, with models beginning to capture Truku-specific patterns after just 500 training steps.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Retrieval Augmented Generation (RAG) -->
+        <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">10/19</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="slide-text">
+                        <h2>Retrieval Augmented Generation (RAG)</h2>
+                        
+                        <h3>What is RAG?</h3>
+                        <p>Retrieval Augmented Generation (RAG) is a hybrid framework that enhances language models by retrieving relevant information from external knowledge sources and using it to generate more accurate, factual responses.</p>
+                        
+                        <h3>RAG Architecture</h3>
+                        <ol>
+                            <li><strong>Retriever:</strong> Searches through a knowledge base for relevant information</li>
+                            <li><strong>Generator:</strong> Uses the retrieved information alongside the query to produce informed responses</li>
+                            <li><strong>Knowledge Base:</strong> Contains verified information (cultural knowledge, correct language usage)</li>
+                        </ol>
+                        
+                        <div class="content-box">
+                            <h4>Benefits for Language Revitalization</h4>
+                            <ul>
+                                <li><strong>Cultural Accuracy:</strong> Ensures AI responses respect cultural norms and traditional knowledge</li>
+                                <li><strong>Language Authenticity:</strong> Anchors language generation in verified, elder-approved texts</li>
+                                <li><strong>Source Attribution:</strong> Maintains connection to original language sources</li>
+                                <li><strong>Dynamic Updates:</strong> New language materials can be added to knowledge base without retraining</li>
+                            </ul>
+                        </div>
+                        
+                        <h3>Truku Seediq RAG Implementation</h3>
+                        <p>Our RAG system for Truku language teaching includes:</p>
+                        <ul>
+                            <li>Bible translation corpus from Pastor Chang</li>
+                            <li>Traditional stories and cultural narratives</li>
+                            <li>Linguistic documentation from Dr. Tang's research</li>
+                            <li>Community-verified lexical and grammatical references</li>
+                        </ul>
+                    </div>
+                    <div class="slide-image">
+                        <img src="/api/placeholder/650/300" alt="RAG architecture diagram" />
+                        
+                        <div class="flow-diagram">
+                            <img src="/api/placeholder/650/200" alt="RAG workflow for Truku revitalization" />
+                        </div>
+                        
+                        <div class="code-block">
+                            <span class="code-comment"># RAG query processing pseudocode</span><br>
+                            def process_query(query, corpus):<br>
+                            &nbsp;&nbsp;# Convert query to embedding<br>
+                            &nbsp;&nbsp;query_embedding = embed(query)<br>
+                            &nbsp;&nbsp;# Retrieve relevant passages<br>
+                            &nbsp;&nbsp;relevant_docs = retrieve(query_embedding, corpus)<br>
+                            &nbsp;&nbsp;# Generate response using LLM<br>
+                            &nbsp;&nbsp;response = generate(query, relevant_docs)<br>
+                            &nbsp;&nbsp;return response
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Building Digital Infrastructure - Corpus -->
+        <div class="slide">
+            <div class="header">
+                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
+                <div class="slide-number">11/19</div>
             </div>
             <div class="slide-content">
                 <div class="two-column">
@@ -680,7 +995,7 @@
                         <h2>Building Digital Infrastructure</h2>
                         
                         <h3>Corpus Development</h3>
-                        <p>As outlined in the OS科研4 project plan, comprehensive corpus development with physiological indices is the foundation for both AI-powered language revitalization and brain processing research.<sup>16</sup></p>
+                        <p>As outlined in the OS科研4 project plan, comprehensive corpus development with physiological indices is the foundation for both AI-powered language revitalization and brain processing research.</p>
                         
                         <div class="ai-method">
                             <h4>
@@ -691,7 +1006,7 @@
                             </h4>
                             <ul>
                                 <li>Books and academic papers (31+ collected sources)</li>
-                                <li>Biblical translations (extensive material from Pastor Chang)<sup>17</sup></li>
+                                <li>Biblical translations (extensive material from Pastor Chang)</li>
                                 <li>Government documents</li>
                                 <li>Pear Film narratives</li>
                             </ul>
@@ -708,7 +1023,7 @@
                                 <li>Archival recordings</li>
                                 <li>Field recordings from 2025 data collection with Pastor Chang</li>
                                 <li>Natural conversations, traditional narratives, songs</li>
-                                <li>Audio-visual data from fieldwork by Prof. Manami Sato<sup>18</sup></li>
+                                <li>Audio-visual data from fieldwork by Prof. Manami Sato</li>
                             </ul>
                         </div>
                         
@@ -724,7 +1039,7 @@
                                 <li>Parallel translations</li>
                                 <li>Morphological tagging</li>
                                 <li>Syntactic annotation</li>
-                                <li>Physiological indices for language processing research<sup>19</sup></li>
+                                <li>Physiological indices for language processing research</li>
                             </ul>
                         </div>
                     </div>
@@ -735,47 +1050,11 @@
             </div>
         </div>
 
-        <!-- Slide 7: Universal Dependencies Treebank -->
+        <!-- Slide 12: Neural Machine Translation -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">7/16</div>
-            </div>
-            <div class="slide-content">
-                <div class="full-width">
-                    <h2>Universal Dependencies Treebank</h2>
-                    
-                    <p>The development of a Universal Dependencies (UD) treebank for Truku Seediq enables syntactic parsing, cross-linguistic comparison, and advanced NLP applications.<sup>20</sup></p>
-                    
-                    <h3>Technical Implementation</h3>
-                    <ul>
-                        <li>Adaptation of UD guidelines to Truku's unique linguistic features</li>
-                        <li>Custom handling of Truku's voice/focus system (challenge for dependency representation)</li>
-                        <li>Inter-annotator agreement protocols for quality control</li>
-                        <li>Integration with existing UD ecosystem (245 treebanks across 141 languages)<sup>21</sup></li>
-                    </ul>
-                    
-                    <h3>Benefits for AI Applications</h3>
-                    <ul>
-                        <li>Enables training of syntactic parsers</li>
-                        <li>Provides structural data for neural machine translation</li>
-                        <li>Supports grammatical error detection in educational tools</li>
-                        <li>Allows cross-linguistic transfer learning from resource-rich languages<sup>22</sup></li>
-                    </ul>
-                    
-                    <div class="content-box">
-                        <h4>Project Timeline (2024-2027)</h4>
-                        <p>According to the OS科研4 project plan, the development of base corpus and language resources with linguistic annotation is scheduled for 2024-2025, followed by brain function experiments (2025-2026) and AI dialogue system development (2024-2027) by So Miyagawa and Manami Sato.<sup>23</sup></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 8: Neural Machine Translation -->
-        <div class="slide">
-            <div class="header">
-                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">8/16</div>
+                <div class="slide-number">12/19</div>
             </div>
             <div class="slide-content">
                 <div class="two-column">
@@ -783,14 +1062,14 @@
                         <h2>Neural Machine Translation (NMT)</h2>
                         
                         <h3>Function & Purpose</h3>
-                        <p>Development of neural machine translation systems between Truku Seediq and Mandarin Chinese/English to support digital access, documentation, and learning.<sup>24</sup></p>
+                        <p>Development of neural machine translation systems between Truku Seediq and Mandarin Chinese/English to support digital access, documentation, and learning.</p>
                         
                         <div class="ai-method">
                             <h4>Technical Approach</h4>
                             <ul>
                                 <li><strong>Model Architecture:</strong> Transfer learning from multilingual models (MarianMT)</li>
                                 <li><strong>Data Augmentation:</strong> Techniques to expand limited parallel text data</li>
-                                <li><strong>Morphologically-Aware Modeling:</strong> Special handling for Truku's complex morphology<sup>25</sup></li>
+                                <li><strong>Morphologically-Aware Modeling:</strong> Special handling for Truku's complex morphology</li>
                             </ul>
                         </div>
                         
@@ -805,7 +1084,7 @@
                         
                         <div class="content-box">
                             <h4>Lessons from Related Projects</h4>
-                            <p>Drawing from experiences with other endangered language translation projects (e.g., Japanese-Ainu with SacreBLEU score of 32.905), the Truku Seediq model requires approximately 400,000+ words of parallel text for effective performance.<sup>26</sup></p>
+                            <p>Drawing from experiences with other endangered language translation projects (e.g., Japanese-Ainu with SacreBLEU score of 32.905), the Truku Seediq model requires approximately 400,000+ words of parallel text for effective performance.</p>
                         </div>
                     </div>
                     <div class="slide-image">
@@ -815,25 +1094,25 @@
             </div>
         </div>
 
-        <!-- Slide 9: ASR and Speech Generation -->
+        <!-- Slide 13: ASR and Speech Generation -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">9/16</div>
+                <div class="slide-number">13/19</div>
             </div>
             <div class="slide-content">
                 <div class="full-width">
                     <h2>Automatic Speech Recognition (ASR) & Speech Generation</h2>
                     
                     <h3>Function & Purpose</h3>
-                    <p>Development of models to transcribe spoken Truku Seediq into text and generate natural Truku speech from text, supporting documentation and interactive learning.<sup>27</sup></p>
+                    <p>Development of models to transcribe spoken Truku Seediq into text and generate natural Truku speech from text, supporting documentation and interactive learning.</p>
                     
                     <div class="ai-method">
                         <h4>Technical Approach</h4>
                         <ul>
                             <li><strong>Model Architecture:</strong> Fine-tuning self-supervised models like OpenAI's Whisper</li>
                             <li><strong>Audio Data Augmentation:</strong> Techniques to expand limited speech data</li>
-                            <li><strong>Speaker Diversity:</strong> Including multiple generations and dialectal variations<sup>28</sup></li>
+                            <li><strong>Speaker Diversity:</strong> Including multiple generations and dialectal variations</li>
                         </ul>
                     </div>
                     
@@ -843,17 +1122,17 @@
                         <li>Creating searchable speech corpora</li>
                         <li>Enabling voice interfaces for educational applications</li>
                         <li>Bridging oral and written traditions</li>
-                        <li>Supporting pronunciation training through audio feedback<sup>29</sup></li>
+                        <li>Supporting pronunciation training through audio feedback</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 10: HeyGen AI Avatar Project -->
+        <!-- Slide 14: HeyGen AI Avatar Project -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">10/16</div>
+                <div class="slide-number">14/19</div>
             </div>
             <div class="slide-content">
                 <div class="two-column">
@@ -862,11 +1141,11 @@
                         
                         <div class="content-box">
                             <h4>Specialized Data Collection</h4>
-                            <p>February 2025 field work with Pastor Chang to gather high-quality audio-visual data specifically for training AI avatars<sup>30</sup></p>
+                            <p>February 2025 field work with Pastor Chang to gather high-quality audio-visual data specifically for training AI avatars</p>
                         </div>
                         
                         <h3>Implementation</h3>
-                        <p>Creation of virtual Truku language tutors providing interactive learning experiences that preserve cultural knowledge through digital elder storytelling.<sup>31</sup></p>
+                        <p>Creation of virtual Truku language tutors providing interactive learning experiences that preserve cultural knowledge through digital elder storytelling.</p>
                         
                         <h3>Applications</h3>
                         <ul>
@@ -874,7 +1153,7 @@
                             <li>Accessible language models when native speakers unavailable</li>
                             <li>Engaging educational content for younger generations</li>
                             <li>Bridging geographic gaps for urban Truku community members</li>
-                            <li>Preservation of cultural knowledge and oral traditions<sup>32</sup></li>
+                            <li>Preservation of cultural knowledge and oral traditions</li>
                         </ul>
                         
                         <div class="content-box">
@@ -889,11 +1168,11 @@
             </div>
         </div>
 
-        <!-- Slide 11: Additional AI Tools -->
+        <!-- Slide 15: Additional AI Tools -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">11/16</div>
+                <div class="slide-number">15/19</div>
             </div>
             <div class="slide-content">
                 <div class="full-width">
@@ -901,7 +1180,7 @@
                     
                     <div class="ai-method">
                         <h4>SUNO AI Songs</h4>
-                        <p>AI-generated musical language learning resources that combine traditional melodies with linguistic content.<sup>33</sup></p>
+                        <p>AI-generated musical language learning resources that combine traditional melodies with linguistic content.</p>
                     </div>
                     
                     <div class="ai-method">
@@ -910,13 +1189,13 @@
                             <li>Interactive learning modules with speech recognition</li>
                             <li>Grammar visualization tools</li>
                             <li>Automated feedback systems for learners</li>
-                            <li>Gamified learning experiences<sup>34</sup></li>
+                            <li>Gamified learning experiences</li>
                         </ul>
                     </div>
                     
                     <div class="ai-method">
                         <h4>Digital Dictionary with NLP Integration</h4>
-                        <p>Comprehensive digital lexicon with advanced search capabilities, example concordances, and contextual learning materials.<sup>35</sup></p>
+                        <p>Comprehensive digital lexicon with advanced search capabilities, example concordances, and contextual learning materials.</p>
                     </div>
                     
                     <h3>Community-Centered AI Development</h3>
@@ -930,11 +1209,11 @@
             </div>
         </div>
 
-        <!-- Slide 12: Community-Based Participatory Research Model -->
+        <!-- Slide 16: Community-Based Participatory Research Model -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">12/16</div>
+                <div class="slide-number">16/19</div>
             </div>
             <div class="slide-content">
                 <div class="full-width">
@@ -943,7 +1222,7 @@
                     <h3>Foundational Principles</h3>
                     <ul>
                         <li><strong>Community Centrality:</strong> Prioritizing community needs, aspirations, and protocols</li>
-                        <li><strong>Decolonizing Research:</strong> Challenging extractive models, centering indigenous knowledge<sup>36</sup></li>
+                        <li><strong>Decolonizing Research:</strong> Challenging extractive models, centering indigenous knowledge</li>
                         <li><strong>Reciprocal Relationships:</strong> Building long-term partnerships based on trust and mutual benefit</li>
                         <li><strong>Capacity Building:</strong> Empowering community through technology transfer and knowledge sharing</li>
                     </ul>
@@ -953,22 +1232,22 @@
                         <li><strong>Co-Design:</strong> Community members actively shaping tool features and interfaces</li>
                         <li><strong>Technical Training:</strong> Workshops on corpus annotation, digital resource management</li>
                         <li><strong>Regular Consultation:</strong> Ongoing dialogue to ensure alignment with community goals</li>
-                        <li><strong>Data Sovereignty:</strong> Community control over language data and intellectual property<sup>37</sup></li>
+                        <li><strong>Data Sovereignty:</strong> Community control over language data and intellectual property</li>
                     </ul>
                     
                     <div class="content-box">
                         <h4>Recent Example: HeyGen Avatar Development</h4>
-                        <p>Pastor Chang's active collaboration in February 2025 field trip, providing cultural guidance on appropriate representation and linguistic authenticity.<sup>38</sup></p>
+                        <p>Pastor Chang's active collaboration in February 2025 field trip, providing cultural guidance on appropriate representation and linguistic authenticity.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 13: Current Challenges -->
+        <!-- Slide 17: Current Challenges -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">13/16</div>
+                <div class="slide-number">17/19</div>
             </div>
             <div class="slide-content">
                 <div class="full-width">
@@ -978,7 +1257,7 @@
                         <h4>Data Scarcity</h4>
                         <ul>
                             <li>Limited digital corpus compared to high-resource languages</li>
-                            <li>Need for ~400,000+ words for effective NMT performance<sup>39</sup></li>
+                            <li>Need for ~400,000+ words for effective NMT performance</li>
                             <li>Challenges in capturing diverse speech data across generations</li>
                         </ul>
                     </div>
@@ -988,7 +1267,7 @@
                         <ul>
                             <li>Adapting NLP methods for Truku's complex linguistic structures</li>
                             <li>Balancing standardization with dialect variation</li>
-                            <li>Handling intergenerational language differences in AI models<sup>40</sup></li>
+                            <li>Handling intergenerational language differences in AI models</li>
                         </ul>
                     </div>
                     
@@ -1006,18 +1285,18 @@
                         <ul>
                             <li>Ensuring equitable access to technology within the community</li>
                             <li>Developing user-friendly interfaces for all generations</li>
-                            <li>Bridging urban-rural technological gaps<sup>41</sup></li>
+                            <li>Bridging urban-rural technological gaps</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 14: Future Research Directions -->
+        <!-- Slide 18: Future Research Directions -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">14/16</div>
+                <div class="slide-number">18/19</div>
             </div>
             <div class="slide-content">
                 <div class="full-width">
@@ -1027,7 +1306,7 @@
                         <div class="timeline-item">
                             <h4>Model Refinement & Expansion</h4>
                             <div class="timeline-date">2025-2026</div>
-                            <p>Improving NMT and ASR performance through specialized architectures; expanding HeyGen avatars to include more speakers and cultural contexts<sup>42</sup></p>
+                            <p>Improving NMT and ASR performance through specialized architectures; expanding HeyGen avatars to include more speakers and cultural contexts</p>
                         </div>
                         
                         <div class="timeline-item">
@@ -1039,7 +1318,7 @@
                         <div class="timeline-item">
                             <h4>Pedagogical Assessment</h4>
                             <div class="timeline-date">2027-2028</div>
-                            <p>Evaluating AI tools' effectiveness for language acquisition; refining based on learning outcomes<sup>43</sup></p>
+                            <p>Evaluating AI tools' effectiveness for language acquisition; refining based on learning outcomes</p>
                         </div>
                         
                         <div class="timeline-item">
@@ -1051,23 +1330,23 @@
                     
                     <div class="content-box">
                         <h4>Knowledge Transfer Potential</h4>
-                        <p>Methodologies developed for Truku Seediq can be adapted for other endangered Formosan languages, creating a scalable model for AI-powered language revitalization.<sup>44</sup></p>
+                        <p>Methodologies developed for Truku Seediq can be adapted for other endangered Formosan languages, creating a scalable model for AI-powered language revitalization.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 15: Conclusion -->
+        <!-- Slide 19: Conclusion -->
         <div class="slide">
             <div class="header">
                 <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">15/16</div>
+                <div class="slide-number">19/19</div>
             </div>
             <div class="slide-content">
                 <div class="full-width">
                     <h2>Conclusion</h2>
                     
-                    <p>Our research demonstrates how ethically implemented AI technologies can empower indigenous communities in their language revitalization efforts. By combining cutting-edge NLP methods with deep community partnership, we are creating a sustainable framework for Truku Seediq language revitalization that honors both linguistic heritage and technological innovation.<sup>45</sup></p>
+                    <p>Our research demonstrates how ethically implemented AI technologies can empower indigenous communities in their language revitalization efforts. By combining cutting-edge NLP methods with deep community partnership, we are creating a sustainable framework for Truku Seediq language revitalization that honors both linguistic heritage and technological innovation.</p>
                     
                     <h3>Key Innovations</h3>
                     <ul>
@@ -1080,76 +1359,8 @@
                     
                     <div class="content-box">
                         <h4>Acknowledgements</h4>
-                        <p>We express our sincere gratitude to the Taiwan Truku Cultural Promotion Association, Pastor Chang, and the Truku Seediq community for their invaluable contributions to this research.</p>
+                        <p>We express our sincere gratitude to the Taiwan Truku Cultural Promotion Association, Pastor Chang, Dr. Apay Ai-yu Tang, and the Truku Seediq community for their invaluable contributions to this research.</p>
                     </div>
-                    
-                    <div class="citation">
-                        Field-based Approaches to Language, Cognition, and Human Nature (FALCOHN)<br>
-                        OS科研4 (2024-2027) - JSPS Kakenhi Grant-in-Aid (A)<br>
-                        Led by Prof. Masatoshi Koizumi (Tohoku University)<br>
-                        Research Team: So Miyagawa, Manami Sato, Akinori Ito, and fellow researchers working on Kaqchikel, Tongan, and Oki-no-Erabu languages
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 16: References -->
-        <div class="slide">
-            <div class="header">
-                <h1>AI-Powered Language Revitalization: A Case Study of Truku Seediq</h1>
-                <div class="slide-number">16/16</div>
-            </div>
-            <div class="slide-content">
-                <div class="full-width">
-                    <h2>References</h2>
-                    
-                    <ol class="references">
-                        <li>UNESCO. (2023). Atlas of the World's Languages in Danger. Paris: UNESCO Publishing.</li>
-                        <li>Ethnologue. (2024). Languages of the World (24th ed.). SIL International.</li>
-                        <li>Blust, R. (2022). Austronesian languages of Taiwan: History and current status. Journal of Linguistic Anthropology, 32(1), 45-67.</li>
-                        <li>Council of Indigenous Peoples (CIP). (2021). Indigenous Population Statistics Report. Taiwan: Government of Taiwan.</li>
-                        <li>Zeitoun, E., Teng, S. F., & Ferrell, R. (2020). Formosan languages: A state-of-the-field survey. Language and Linguistics, 21(1), 124-151.</li>
-                        <li>Chang, Y. L., & Li, P. J. (2023). Phonological and morphological structures of Truku Seediq. Linguistic Typology, 27(2), 190-215.</li>
-                        <li>Tsukida, N. (2022). Syntactic features of Truku Seediq: Focus, voice, and alignment. Oceanic Linguistics, 61(1), 95-120.</li>
-                        <li>Taiwan Truku Cultural Promotion Association. (2023). Annual Report on Revitalization Activities. Hualien, Taiwan.</li>
-                        <li>Lai, I. W., & Teng, S. F. (2021). Intergenerational language variation in Truku Seediq. Journal of Taiwanese Indigenous Studies, 14(2), 78-102.</li>
-                        <li>Chen, V. (2023). Contact-induced language change in Taiwan's indigenous languages. International Journal of Bilingualism, 27(3), 324-348.</li>
-                        <li>Koizumi, M., & Sato, M. (2014). Final report: OS科研1 (2010-2014). Tohoku University, Japan.</li>
-                        <li>Koizumi, M., Sato, M., & Miyagawa, S. (2019). OS科研2 report: Discourse processing mechanisms in OS languages. JSPS Research Reports.</li>
-                        <li>Koizumi, M., Miyagawa, S., & Sato, M. (2023). OS科研3: Field-based cognitive studies of language order. Tohoku University Press.</li>
-                        <li>JSPS. (2024). Grant-in-Aid for Scientific Research (A): OS科研4 project outline. Japan Society for the Promotion of Science.</li>
-                        <li>Miyagawa, S., & Chang, P. (2024). Community partnerships in language revitalization: The Truku case study. Language Documentation and Conservation, 18, 102-129.</li>
-                        <li>Ito, A., & Miyagawa, S. (2024). Corpus methodologies for physiologically-indexed language documentation. Journal of Language Documentation, 12(1), 45-67.</li>
-                        <li>Chang, P. (2022). Biblical translations as language documentation: The case of Truku Seediq. International Journal of Translation Studies, 34(2), 215-238.</li>
-                        <li>Sato, M. (2023). Audio-visual documentation methods for endangered languages with minimal researcher footprint. Journal of Language Documentation & Conservation, 17, 156-183.</li>
-                        <li>Koizumi, M., Ito, A., & Sato, M. (2024). Physiological indices in language documentation: Methodological considerations. Language Documentation & Description, 22, 78-102.</li>
-                        <li>Miyagawa, S., & Ito, A. (2024). Universal Dependencies for Truku Seediq: Development and challenges. Proceedings of the 6th Workshop on Universal Dependencies, 67-75.</li>
-                        <li>Nivre, J., et al. (2023). Universal Dependencies 2.12: Updates and expansions. Computational Linguistics, 49(2), 409-433.</li>
-                        <li>Ito, A., & Wang, Y. (2024). Cross-linguistic transfer learning for low-resource languages. ACL 2024 Workshop on Low-Resource NLP, 34-42.</li>
-                        <li>Miyagawa, S., & Sato, M. (2024). OS科研4: Timeline and milestones for Truku Seediq language resource development. JSPS Quarterly, 87, 8-11.</li>
-                        <li>Wang, Y., et al. (2024). Neural machine translation systems for endangered languages: Challenges and strategies. Machine Translation, 38(1), 67-92.</li>
-                        <li>Ito, A., & Lin, H. (2024). Morphologically-aware modeling for Austronesian languages. Computational Linguistics, 50(1), 123-156.</li>
-                        <li>Miyagawa, S., et al. (2023). Resource requirements for effective NMT in endangered languages. Proceedings of LREC 2023, 3578-3587.</li>
-                        <li>Lin, H., & Ito, A. (2024). ASR system development for Truku Seediq: Technical approach and community feedback. Speech Communication, 146, 89-107.</li>
-                        <li>Wang, Y., et al. (2024). Speaker diversity in ASR training for endangered languages. IEEE Transactions on Audio, Speech and Language Processing, 32(4), 1045-1061.</li>
-                        <li>Ito, A., & Chang, P. (2023). Voice interfaces for language learning: The case of Truku Seediq. Computer Assisted Language Learning, 36(5), 1237-1256.</li>
-                        <li>FALCOHN. (2025, March). Field report: Audio-visual data collection for AI avatars. Field-based Approaches to Language, Cognition, and Human Nature.</li>
-                        <li>Sato, M., & Miyagawa, S. (2024). Digital elder storytelling: AI avatars in language revitalization. Technology & Language, 9(2), 75-93.</li>
-                        <li>Chang, P., & Ito, A. (2025). Cultural knowledge preservation through AI: Truku Seediq case study. Digital Humanities Quarterly, 19(1).</li>
-                        <li>Ito, A., & Wu, J. (2024). AI-generated music for language revitalization. Journal of Music Technology & Education, 17(1), 45-63.</li>
-                        <li>Miyagawa, S., et al. (2024). Educational software development for endangered languages. Computer Assisted Language Learning, 37(2), 345-368.</li>
-                        <li>Lin, H., & Wang, Y. (2024). NLP-enhanced dictionaries for low-resource languages. International Journal of Lexicography, 37(1), 56-82.</li>
-                        <li>Tuhiwai Smith, L., et al. (2023). Decolonizing methodologies in language documentation. Journal of Linguistic Anthropology, 33(2), 189-213.</li>
-                        <li>Miyagawa, S., Sato, M., & Chang, P. (2024). Data sovereignty in indigenous language documentation. Language Resources and Evaluation, 58(1), 102-127.</li>
-                        <li>Chang, P., & Miyagawa, S. (2025). Community co-design of AI avatars for language preservation. AI & Society, 40(1).</li>
-                        <li>Ito, A., Miyagawa, S., & Wang, Y. (2024). Low-resource NMT: Data requirements and efficiency metrics. Proceedings of MT Summit XIX, 345-356.</li>
-                        <li>Lin, H., et al. (2023). Intergenerational variation and AI model training. Computational Linguistics, 49(4), 678-702.</li>
-                        <li>Sato, M., Chang, P., & Miyagawa, S. (2024). Bridging the digital divide in language revitalization. Language Documentation & Conservation, 18, 245-271.</li>
-                        <li>Miyagawa, S., & Ito, A. (2025). Future directions for AI-assisted language revitalization. International Journal of the Sociology of Language, 271, 89-115.</li>
-                        <li>Lin, H., et al. (2024). Evaluating AI tools for language learning outcomes. ReCALL, 36(2), 201-225.</li>
-                        <li>Miyagawa, S., et al. (2025). Scaling AI-powered revitalization across Taiwan's indigenous languages. Anthropological Linguistics, 67(1), 56-84.</li>
-                        <li>Sato, M., Miyagawa, S., Ito, A., & Chang, P. (2025). Ethical AI implementation in language revitalization. Ethics and Information Technology, 27(1), 1-22.</li>
-                    </ol>
                     
                     <div class="citation">
                         Field-based Approaches to Language, Cognition, and Human Nature (FALCOHN)<br>
