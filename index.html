@@ -15,8 +15,9 @@
             --text-color: #333;
             --light-bg: #f8f9fa;
             --dark-bg: #011f4b;
-            --slide-transition: 0.6s;
-            --base-font-size: 14px; /* Reduced base font size */
+            --slide-transition: 0.6s; /* Duration of the slide transition */
+            --slide-ease: cubic-bezier(0.65, 0.05, 0.36, 1); /* Easing function for a futuristic feel */
+            --base-font-size: 14px; 
         }
         
         * {
@@ -29,7 +30,7 @@
             font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             color: var(--text-color);
             background-color: var(--light-bg);
-            line-height: 1.5; /* Slightly reduced line height */
+            line-height: 1.5; 
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -44,9 +45,10 @@
             height: 56.25vw; /* 16:9 aspect ratio */
             max-height: 100vh;
             position: relative;
-            overflow: hidden;
+            overflow: hidden; /* Important: overflow hidden is needed for some 3D effects to not show edges of rotating slides outside bounds */
             margin: 0 auto;
-            background-color: #ccc; /* Background for the container area */
+            background-color: #ccc; 
+            perspective: 1200px; /* Added for 3D effect on slides */
         }
         
         @media screen and (min-aspect-ratio: 16/9) {
@@ -62,38 +64,47 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: transform var(--slide-transition), opacity var(--slide-transition);
-            overflow-y: auto; /* Allow scrolling for content overflow, though ideally avoided */
+            opacity: 0; /* Start transparent */
+            /* Initial state for slides coming from the right: rotated and off-screen */
+            transform: translateX(100%) rotateY(-45deg); 
+            transform-origin: 0% 50%; /* Pivot from the left edge for incoming slide */
+            transition: transform var(--slide-transition) var(--slide-ease), opacity var(--slide-transition) var(--slide-ease);
+            overflow-y: auto; 
             background-color: white;
             display: flex;
             flex-direction: column;
+            backface-visibility: hidden; /* Hide the back of the slide during rotation */
         }
         
         .slide.active {
-            opacity: 1;
-            transform: translateX(0);
-            z-index: 1;
+            opacity: 1; /* Fully visible */
+            /* Active state: centered and flat */
+            transform: translateX(0) rotateY(0deg);
+            transform-origin: 50% 50%; /* Pivot from center when active or for default transitions */
+            z-index: 1; /* Ensure active slide is on top */
         }
         
         .slide.prev {
-            transform: translateX(-100%);
+            /* Outgoing state for slides moving to the left: rotated out and off-screen */
+            transform: translateX(-100%) rotateY(45deg);
+            transform-origin: 100% 50%; /* Pivot from the right edge for outgoing slide */
+            opacity: 0; /* Ensure it fades out */
+            z-index: 0; /* Ensure it's behind the active slide */
         }
         
         .header {
             background-color: var(--primary-color);
             color: white;
-            padding: 10px 20px; /* Reduced padding */
+            padding: 10px 20px; 
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            flex-shrink: 0; /* Prevent header from shrinking */
+            flex-shrink: 0; 
         }
         
         .header h1 {
-            font-size: 1rem; /* Reduced font size */
+            font-size: 1rem; 
             font-weight: 500;
             white-space: nowrap;
             overflow: hidden;
@@ -101,19 +112,19 @@
         }
         
         .slide-number {
-            font-size: 0.8rem; /* Reduced font size */
+            font-size: 0.8rem; 
             font-weight: 400;
         }
         
         .slide-content {
             flex: 1;
-            padding: 20px; /* Reduced padding */
+            padding: 20px; 
             display: flex;
-            flex-direction: column; /* Default to column for content stacking */
-            max-width: 1200px; /* Max width for content */
+            flex-direction: column; 
+            max-width: 1200px; 
             margin: 0 auto;
             width: 100%;
-            overflow-y: auto; /* Allow content to scroll if it overflows */
+            overflow-y: auto; 
         }
         
         .title-slide .slide-content {
@@ -122,39 +133,38 @@
             text-align: center;
             background-color: var(--dark-bg);
             color: white;
-            height: 100%; /* Ensure title slide content takes full height */
+            height: 100%; 
         }
         
-        .full-width { /* This class can be used if a section within slide-content needs to be explicitly full-width, especially if slide-content itself has other flex properties. */
+        .full-width { 
             width: 100%;
         }
         
         .two-column {
             display: flex;
-            flex-direction: row; /* Default to row for larger screens */
+            flex-direction: row; 
             gap: 20px;
             width: 100%;
         }
 
-        .two-column > div { /* Direct children of .two-column are the columns */
-            flex: 1; /* Each column takes equal space */
-            min-width: 0; /* Allow flex items to shrink and prevent overflow if content is too wide */
-            display: flex; /* Make columns flex containers themselves */
-            flex-direction: column; /* Stack content vertically within columns */
+        .two-column > div { 
+            flex: 1; 
+            min-width: 0; 
+            display: flex; 
+            flex-direction: column; 
         }
 
-        /* Stack columns on smaller viewports or if content is dense */
-        @media (max-width: 768px) { /* Adjust breakpoint as needed */
+        @media (max-width: 768px) { 
             .two-column {
                 flex-direction: column;
             }
         }
         
-        .slide-text { /* Can be used inside a column if it's primarily text */
+        .slide-text { 
             width: 100%;
         }
         
-        .slide-image { /* Used for general images, distinct from diagram-placeholder */
+        .slide-image { 
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -165,12 +175,12 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             padding: 10px;
-            margin: 10px 0; /* Default margin, can be overridden */
+            margin: 10px 0; 
         }
         
         .slide-image img {
             max-width: 100%;
-            max-height: 300px; /* Max height for general images */
+            max-height: 300px; 
             object-fit: contain;
             border-radius: 4px;
         }
@@ -179,33 +189,33 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center content (image and caption) vertically */
-            align-items: center; /* Center content horizontally */
-            background-color: #f0f0f0; /* Lighter background for diagrams */
+            justify-content: center; 
+            align-items: center; 
+            background-color: #f0f0f0; 
             border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
             padding: 15px;
-            margin: 15px auto; /* Center diagram block if it's not full width of its parent */
-            max-width: 90%; /* Max width for diagram block relative to its container */
+            margin: 15px auto; 
+            max-width: 90%; 
         }
-        .two-column .diagram-placeholder { /* Specific styling for diagrams in two-column layouts */
-             margin: 0 auto 15px auto; /* Center horizontally, add bottom margin if needed */
-             max-width: 100%; /* Allow it to take full width of its column */
+        .two-column .diagram-placeholder { 
+             margin: 0 auto 15px auto; 
+             max-width: 100%; 
         }
 
 
         .diagram-placeholder img {
             max-width: 100%;
-            height: auto; /* Maintain aspect ratio */
-            max-height: 250px; /* Adjust max height for diagrams, slightly more generous */
+            height: auto; 
+            max-height: 250px; 
             object-fit: contain;
             border-radius: 4px;
-            background-color: #fff; /* White background for the image part */
+            background-color: #fff; 
         }
 
         .diagram-caption {
-            font-size: 0.75rem; /* Smaller caption */
+            font-size: 0.75rem; 
             color: #444;
             margin-top: 8px;
             text-align: center;
@@ -214,42 +224,42 @@
         
         h2 {
             color: var(--primary-color);
-            font-size: 1.6rem; /* Reduced font size */
-            margin-bottom: 15px; /* Reduced margin */
+            font-size: 1.6rem; 
+            margin-bottom: 15px; 
             border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 8px; /* Reduced padding */
-            width: 100%; /* Ensure H2 takes full width before columns */
+            padding-bottom: 8px; 
+            width: 100%; 
         }
         
         h3 {
             color: var(--secondary-color);
-            font-size: 1.3rem; /* Reduced font size */
-            margin: 15px 0 10px; /* Adjusted margins */
+            font-size: 1.3rem; 
+            margin: 15px 0 10px; 
         }
 
         h4 {
              color: var(--primary-color);
-             font-size: 1rem; /* Reduced font size */
+             font-size: 1rem; 
              margin-bottom: 8px;
         }
         
         p, ul, ol {
-            margin-bottom: 10px; /* Reduced margin */
-            font-size: 0.9rem; /* Slightly smaller text */
+            margin-bottom: 10px; 
+            font-size: 0.9rem; 
         }
         
         ul, ol {
             margin-left: 20px;
-            padding-left: 0; /* Remove default padding if margin-left is used for indentation */
+            padding-left: 0; 
         }
         
         li {
-            margin-bottom: 6px; /* Reduced margin */
+            margin-bottom: 6px; 
         }
         
         .navigation {
             position: fixed;
-            bottom: 15px; /* Adjusted position */
+            bottom: 15px; 
             left: 0;
             right: 0;
             display: flex;
@@ -289,9 +299,9 @@
         
         .content-box {
             background-color: var(--light-bg);
-            padding: 15px; /* Reduced padding */
-            border-radius: 6px; /* Slightly smaller radius */
-            margin-bottom: 15px; /* Reduced margin */
+            padding: 15px; 
+            border-radius: 6px; 
+            margin-bottom: 15px; 
             border-left: 3px solid var(--primary-color);
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
@@ -299,24 +309,24 @@
         .highlight { color: var(--accent-color); font-weight: bold; }
         
         .title-slide h1 {
-            font-size: 2.8rem; /* Reduced font size */
+            font-size: 2.8rem; 
             margin-bottom: 20px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            animation: fadeInUp 1s ease; /* Faster animation */
+            animation: fadeInUp 1s ease; 
         }
         
         .title-slide h2 {
             color: var(--secondary-color);
-            font-size: 1.5rem; /* Reduced font size */
+            font-size: 1.5rem; 
             margin-bottom: 20px;
             border: none;
-            animation: fadeInUp 1.2s ease; /* Faster animation */
+            animation: fadeInUp 1.2s ease; 
         }
         
         .title-logo {
-            margin-bottom: 30px; /* Reduced margin */
-            max-width: 150px; /* Smaller logo */
-            animation: fadeIn 1.5s ease; /* Faster animation */
+            margin-bottom: 30px; 
+            max-width: 150px; 
+            animation: fadeIn 1.5s ease; 
         }
         
         .progress-bar {
@@ -330,28 +340,28 @@
         }
         
         .citation {
-            font-size: 0.8rem; /* Reduced font size */
+            font-size: 0.8rem; 
             color: #666;
             font-style: italic;
-            margin-top: 20px; /* Reduced margin */
+            margin-top: 20px; 
         }
         
         .ai-method {
             background-color: #f1f8fe;
             border: 1px solid #d0e6fb;
-            padding: 12px; /* Reduced padding */
+            padding: 12px; 
             border-radius: 6px;
-            margin: 10px 0; /* Reduced margin */
+            margin: 10px 0; 
         }
         
         .ai-method h4 {
-            font-size: 1rem; /* Consistent with other h4 */
+            font-size: 1rem; 
             margin-bottom: 8px;
             display: flex;
             align-items: center;
         }
         
-        .method-icon { /* For potential future use with icons */
+        .method-icon { 
             margin-right: 8px; width: 24px; height: 24px; line-height: 24px;
             background-color: var(--primary-color); color: white; border-radius: 50%;
             font-weight: bold; text-align: center; font-size: 0.8rem;
@@ -360,34 +370,34 @@
         .data-stat {
             background-color: var(--primary-color);
             color: white;
-            padding: 15px; /* Reduced padding */
+            padding: 15px; 
             border-radius: 8px;
-            margin: 15px 0; /* Reduced margin */
+            margin: 15px 0; 
             text-align: center;
         }
         
         .data-stat .number {
-            font-size: 2rem; /* Reduced font size */
+            font-size: 2rem; 
             font-weight: bold;
             margin-bottom: 5px;
         }
         
         .data-stat .label {
-            font-size: 0.9rem; /* Reduced font size */
+            font-size: 0.9rem; 
             opacity: 0.9;
         }
         
-        .source-image { /* For icons next to titles like in Corpus slide */
+        .source-image { 
             display: inline-block; width: 30px; height: 30px; margin-right: 10px;
             vertical-align: middle; background-color: var(--light-bg);
             border-radius: 5px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); overflow: hidden;
         }
         .source-image img { width: 100%; height: 100%; object-fit: cover; }
         
-        .timeline { position: relative; padding-left: 20px; margin: 20px 0; width:100%; /* Ensure timeline takes full width of its column */ }
+        .timeline { position: relative; padding-left: 20px; margin: 20px 0; width:100%; }
         .timeline:before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background-color: var(--secondary-color); }
         .timeline-item { position: relative; padding-bottom: 15px; }
-        .timeline-item:before { content: ""; position: absolute; left: -24px; /* Adjusted for padding-left of .timeline */ top: 5px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--accent-color); border: 2px solid white; }
+        .timeline-item:before { content: ""; position: absolute; left: -24px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--accent-color); border: 2px solid white; }
         .timeline-item h4 { margin-bottom: 3px; font-size: 1rem; }
         .timeline-date { font-size: 0.8rem; color: #666; margin-bottom: 3px; }
         
@@ -396,26 +406,26 @@
         
         .profile-image {
             width: 100%;
-            max-width: 250px; /* Limit profile image size */
+            max-width: 250px; 
             aspect-ratio: 1;
             background-color: var(--light-bg);
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            margin: 0 auto 15px auto; /* Center and add bottom margin */
+            margin: 0 auto 15px auto; 
         }
         .profile-image img { width: 100%; height: 100%; object-fit: cover; }
         
         .code-block {
             background-color: #2d2d2d; color: #e6e6e6; padding: 10px; border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; /* Smaller code font */
+            font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; 
             line-height: 1.3; overflow-x: auto; margin: 10px 0;
         }
         .code-comment { color: #6a9955; font-style: italic; }
         
         .tech-pill {
             display: inline-block; padding: 3px 10px; background-color: var(--accent-color);
-            color: white; border-radius: 15px; font-size: 0.75rem; /* Smaller pills */
+            color: white; border-radius: 15px; font-size: 0.75rem; 
             margin-right: 6px; margin-bottom: 6px;
         }
 
@@ -423,13 +433,13 @@
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-width: 560px; /* Max width for iframes */
-            margin: 15px auto; /* Center iframes */
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            max-width: 560px; 
+            margin: 15px auto; 
+            padding-top: 56.25%; 
         }
-        .two-column .responsive-iframe-container { /* Specific styling for iframes in two-column layouts */
-             margin: 0 auto; /* Center horizontally within its column */
-             max-width: 100%; /* Allow it to take full width of its column */
+        .two-column .responsive-iframe-container { 
+             margin: 0 auto; 
+             max-width: 100%; 
         }
 
         .responsive-iframe-container iframe {
@@ -443,14 +453,14 @@
             border: none;
         }
         
-        @media (max-width: 900px) { /* General responsiveness for smaller slide views */
+        @media (max-width: 900px) { 
             h2 { font-size: 1.4rem; }
             h3 { font-size: 1.1rem; }
             p, ul, ol { font-size: 0.85rem; }
             .header h1 { font-size: 0.9rem; }
             .slide-content { padding: 15px; }
         }
-        @media (max-width: 600px) { /* Further adjustments for very small views */
+        @media (max-width: 600px) { 
             :root { --base-font-size: 12px; }
             h2 { font-size: 1.2rem; }
             .title-slide h1 { font-size: 2rem; }
@@ -891,7 +901,7 @@
                     </div>
                     <div>
                         <div class="responsive-iframe-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_PLACEHOLDER" title="Placeholder Video 1" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Placeholder Video 1" allowfullscreen></iframe>
                         </div>
                          <p class="diagram-caption" style="font-size:0.7rem; text-align:center;">Example: Video of AI tool in action or community using it.</p>
                     </div>
@@ -970,6 +980,10 @@
                     <div>
                         <div class="content-box" style="margin-top:20px;"> <h4>Knowledge Transfer Potential</h4>
                             <p>Truku Seediq methodologies can be a scalable model for other endangered Formosan languages.</p>
+                        </div>
+                         <div class="diagram-placeholder" style="margin-top: 15px;">
+                             <img src="https://placehold.co/500x200/EFEFEF/333333?text=Future+Roadmap+Visual" alt="Future Roadmap Visual"/>
+                             <p class="diagram-caption">Visual: A branching path or upward trend showing future development stages.</p>
                         </div>
                     </div>
                 </div>
